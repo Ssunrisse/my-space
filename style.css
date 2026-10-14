@@ -355,3 +355,308 @@ body.modo-claro #Hora-actual {
 body.modo-claro #fecha-actual {
     color: #7045bf;
 }
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+@media (max-width: 600px) {
+    html {
+        scroll-padding-top: 160px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+
+/* =====================================
+   MAIN NAVIGATION
+===================================== */
+
+#menu-principal {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#menu-principal a {
+    display: inline-block;
+    padding: 10px 15px;
+
+    color: #c9c5db;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+
+    border-radius: 10px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#menu-principal a:hover {
+    background-color: #302b49;
+    color: #ffffff;
+}
+
+#menu-principal a:focus-visible {
+    outline: 2px solid #a78bfa;
+    outline-offset: 3px;
+}
+
+/* Highlight the selected section */
+
+#menu-principal a.activo {
+    background-color: #8257d7;
+    color: #ffffff;
+}
+
+/* Light theme */
+
+body.modo-claro #menu-principal a {
+    color: #5d526e;
+}
+
+body.modo-claro #menu-principal a:hover {
+    background-color: #f0e9fa;
+    color: #7045bf;
+}
+
+body.modo-claro #menu-principal a.activo {
+    background-color: #8257d7;
+    color: #ffffff;
+}
+
+/* =====================================
+   MULTI-PAGE LAYOUT
+===================================== */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    width: 100%;
+    flex: 1;
+}
+
+header {
+    position: relative;
+}
+
+#menu-principal a.activo {
+    background-color: #8257d7;
+    color: #ffffff;
+}
+
+body.modo-claro #menu-principal a.activo {
+    background-color: #8257d7;
+    color: #ffffff;
+}
+
+section {
+    width: 100%;
+}
+
+/* SETTINGS FORM */
+
+#formulario-nombre {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+#nombre-usuario {
+    flex: 1;
+    min-width: 180px;
+}
+
+/* RESPONSIVE LAYOUT */
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #menu-principal {
+        width: 100%;
+    }
+
+    #menu-principal a {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+}
+
+
+/* =====================================
+   LIVE CLOCK & DATE
+===================================== */
+
+#reloj {
+    text-align: center;
+}
+
+#hora-actual {
+    color: #ffffff;
+    font-size: 56px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 3px;
+    margin: 15px 0 5px;
+}
+
+#fecha-actual {
+    color: #c4a5ff;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+/* LIGHT MODE */
+
+body.modo-claro #hora-actual {
+    color: #28213c;
+}
+
+body.modo-claro #fecha-actual {
+    color: #7045bf;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    #hora-actual {
+        font-size: 38px;
+        letter-spacing: 1px;
+    }
+
+    #fecha-actual {
+        font-size: 15px;
+    }
+}
+
+
+/* =====================================
+   UNIFIED TASK SYSTEM
+===================================== */
+
+#lista-tareas {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+}
+
+#lista-tareas .scheduled-task {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #302b49;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+#lista-tareas .task-content {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#lista-tareas .task-content span {
+    color: #ffffff;
+    overflow-wrap: anywhere;
+}
+
+#lista-tareas .task-content span.done {
+    color: #aaa3bd;
+    text-decoration: line-through;
+}
+
+.task-date-input,
+#fecha-tarea {
+    background: #211d35;
+    color: #c4a5ff;
+    border: 1px solid #51476c;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-family: inherit;
+    color-scheme: dark;
+}
+
+.task-date-input {
+    max-width: 180px;
+}
+
+#lista-tareas .scheduled-task > input {
+    width: 18px;
+    height: 18px;
+    accent-color: #a78bfa;
+}
+
+#lista-tareas .delete-task {
+    flex-shrink: 0;
+    background: #6f344e;
+    color: white;
+    font-size: 13px;
+    padding: 8px 12px;
+}
+
+#sin-tareas {
+    color: #a9a3bb;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#sin-tareas[hidden] {
+    display: none;
+}
+
+body.modo-claro #lista-tareas .scheduled-task {
+    background: #f0e9fa;
+}
+
+body.modo-claro #lista-tareas .task-content span {
+    color: #28213c;
+}
+
+body.modo-claro #lista-tareas .task-content span.done {
+    color: #777080;
+}
+
+body.modo-claro .task-date-input,
+body.modo-claro #fecha-tarea {
+    color-scheme: light;
+    background: #ffffff;
+    color: #7045bf;
+    border-color: #d4c5e6;
+}
+
+@media (max-width: 600px) {
+    #formulario-tarea {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #lista-tareas .scheduled-task {
+        flex-wrap: wrap;
+    }
+
+    .task-date-input {
+        max-width: 100%;
+    }
+}

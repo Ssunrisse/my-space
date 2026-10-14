@@ -1,0 +1,544 @@
+
+/* =========================================
+   MY SPACE — GLOBAL THEMES
+========================================= */
+
+/* MIDNIGHT AMETHYST — DEFAULT */
+
+body[data-theme="amethyst"] {
+    --theme-bg: #10101c;
+    --theme-panel: #211e32;
+    --theme-surface: #302a43;
+    --theme-text: #f6f3ff;
+    --theme-muted: #aaa3bf;
+    --theme-accent: #b799ff;
+    --theme-primary: #8056d8;
+    --theme-border: #3a334f;
+    --theme-track: #514768;
+    color-scheme: dark;
+}
+
+/* CRIMSON RONIN — TATAKAI INSPIRED */
+
+body[data-theme="crimson"] {
+    --theme-bg: #0c0c0f;
+    --theme-panel: #19191e;
+    --theme-surface: #272329;
+    --theme-text: #f5f2f3;
+    --theme-muted: #aaa0a5;
+    --theme-accent: #ff5265;
+    --theme-primary: #d82740;
+    --theme-border: #443039;
+    --theme-track: #4b323b;
+    color-scheme: dark;
+}
+
+/* PEARL DAWN — LIGHT */
+
+body[data-theme="pearl"] {
+    --theme-bg: #f5f2fb;
+    --theme-panel: #ffffff;
+    --theme-surface: #eee8f7;
+    --theme-text: #28213c;
+    --theme-muted: #716783;
+    --theme-accent: #7045bf;
+    --theme-primary: #8056d8;
+    --theme-border: #e2d9ed;
+    --theme-track: #d4c8e5;
+    color-scheme: light;
+}
+
+/* CONNECT EXISTING DASHBOARD VARIABLES */
+
+body[data-theme] {
+    --bg: var(--theme-bg);
+    --panel: var(--theme-panel);
+    --panel-alt: var(--theme-surface);
+    --text: var(--theme-text);
+    --muted: var(--theme-muted);
+    --accent: var(--theme-accent);
+    --accent-strong: var(--theme-primary);
+    --border: var(--theme-border);
+
+    --stats-bg: var(--theme-bg);
+    --stats-panel: var(--theme-panel);
+    --stats-surface: var(--theme-surface);
+    --stats-text: var(--theme-text);
+    --stats-muted: var(--theme-muted);
+    --stats-accent: var(--theme-accent);
+    --stats-border: var(--theme-border);
+    --stats-completed: var(--theme-primary);
+    --stats-pending: var(--theme-track);
+
+    background-color: var(--theme-bg);
+    color: var(--theme-text);
+}
+
+/* GLOBAL BACKGROUND */
+
+body[data-theme].dashboard-page,
+body[data-theme].statistics-page {
+    background:
+        radial-gradient(
+            ellipse at 12% 0%,
+            color-mix(in srgb, var(--theme-primary) 12%, transparent),
+            transparent 45%
+        ),
+        var(--theme-bg);
+}
+
+/* NAVIGATION — OVERRIDE OLD FIXED COLORS */
+
+body[data-theme] .site-header {
+    background: var(--theme-panel);
+    border-color: var(--theme-border);
+}
+
+body[data-theme] .site-header .site-brand {
+    color: var(--theme-accent);
+}
+
+body[data-theme] .site-nav a {
+    color: var(--theme-muted);
+}
+
+body[data-theme] .site-nav a:hover {
+    background: var(--theme-surface);
+    color: var(--theme-text);
+}
+
+body[data-theme] .site-nav a.active {
+    background: var(--theme-primary);
+    color: #ffffff;
+}
+
+/* GENERAL PAGE CONTENT */
+
+body[data-theme] main {
+    color: var(--theme-text);
+}
+
+body[data-theme] main h1,
+body[data-theme] main h2,
+body[data-theme] main h3,
+body[data-theme] main h4 {
+    color: var(--theme-text);
+}
+
+body[data-theme] main section:not(.widget):not(.stats-panel),
+body[data-theme] main article:not(.stats-card),
+body[data-theme] .widget,
+body[data-theme] .stats-panel,
+body[data-theme] .stats-card {
+    background-color: var(--theme-panel);
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+}
+
+body[data-theme] main p {
+    color: var(--theme-muted);
+}
+
+body[data-theme] .widget .eyebrow,
+body[data-theme] .stats-eyebrow,
+body[data-theme] .clock-date {
+    color: var(--theme-accent);
+}
+
+/* INPUTS AND BUTTONS */
+
+body[data-theme] input:not([type="checkbox"]),
+body[data-theme] select,
+body[data-theme] textarea {
+    background: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    color: var(--theme-text);
+    border-radius: 10px;
+}
+
+body[data-theme] input::placeholder,
+body[data-theme] textarea::placeholder {
+    color: var(--theme-muted);
+}
+
+body[data-theme] button {
+    accent-color: var(--theme-primary);
+}
+
+body[data-theme] input[type="checkbox"] {
+    accent-color: var(--theme-primary);
+}
+
+body[data-theme] .task-form button,
+body[data-theme] .site-nav .active {
+    background: var(--theme-primary);
+    color: #ffffff;
+}
+
+body[data-theme] button:focus-visible,
+body[data-theme] a:focus-visible,
+body[data-theme] input:focus-visible,
+body[data-theme] select:focus-visible {
+    outline: 2px solid var(--theme-accent);
+    outline-offset: 3px;
+}
+
+/* DASHBOARD */
+
+body[data-theme] .today-label,
+body[data-theme] .digital-display,
+body[data-theme] .scheduled-task,
+body[data-theme] .calendar-day,
+body[data-theme] .calendar-actions button,
+body[data-theme] .today-button,
+body[data-theme] .task-count {
+    background-color: var(--theme-surface);
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+}
+
+body[data-theme] .analog-clock {
+    background: radial-gradient(
+        circle,
+        var(--theme-surface),
+        var(--theme-panel) 75%
+    );
+    border-color: var(--theme-surface);
+}
+
+body[data-theme] .hour-hand {
+    background: var(--theme-text);
+}
+
+body[data-theme] .minute-hand,
+body[data-theme] .clock-mark.major {
+    background: var(--theme-accent);
+}
+
+body[data-theme] .second-hand {
+    background: #ff7582;
+}
+
+body[data-theme] .calendar-day.today {
+    border-color: var(--theme-primary);
+    color: var(--theme-accent);
+}
+
+body[data-theme] .calendar-day.selected {
+    background: var(--theme-primary);
+    color: #ffffff;
+}
+
+body[data-theme] .calendar-day.has-tasks::after {
+    background: var(--theme-accent);
+}
+
+body[data-theme] .calendar-day.selected.has-tasks::after {
+    background: #ffffff;
+}
+
+/* TASKS PAGE */
+
+body[data-theme] #lista-tareas .scheduled-task {
+    background: var(--theme-surface);
+}
+
+body[data-theme] #lista-tareas .task-content span {
+    color: var(--theme-text);
+}
+
+body[data-theme] #lista-tareas .task-content span.done {
+    color: var(--theme-muted);
+}
+
+body[data-theme] .task-date-input,
+body[data-theme] #fecha-tarea {
+    background: var(--theme-surface);
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+}
+
+/* STATISTICS */
+
+body[data-theme] .statistics-header {
+    background: var(--theme-panel);
+    border-color: var(--theme-border);
+}
+
+body[data-theme] .statistics-brand {
+    color: var(--theme-accent);
+}
+
+body[data-theme] .progress-ring {
+    background: conic-gradient(
+        var(--theme-primary) 0%,
+        var(--theme-surface) 0%
+    );
+}
+
+body[data-theme] .progress-inner {
+    background: var(--theme-panel);
+}
+
+body[data-theme] #progress-bar,
+body[data-theme] .bar-completed,
+body[data-theme] .legend-completed {
+    background: var(--theme-primary);
+}
+
+body[data-theme] .bar-pending,
+body[data-theme] .legend-pending {
+    background: var(--theme-track);
+}
+
+/* SETTINGS THEME SELECTOR */
+
+.theme-settings {
+    margin-top: 28px;
+}
+
+.theme-settings h3 {
+    margin-bottom: 8px;
+}
+
+.theme-settings p {
+    color: var(--theme-muted);
+}
+
+.theme-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.theme-option {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 17px;
+    border: 2px solid var(--theme-border);
+    border-radius: 15px;
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    text-align: left;
+    cursor: pointer;
+    transition: border-color .2s, transform .2s;
+}
+
+.theme-option:hover {
+    transform: translateY(-2px);
+}
+
+.theme-option[aria-pressed="true"] {
+    border-color: var(--theme-accent);
+    box-shadow: 0 0 0 2px
+        color-mix(in srgb, var(--theme-accent) 20%, transparent);
+}
+
+.theme-option strong {
+    color: var(--theme-text);
+    font-size: 14px;
+}
+
+.theme-option small {
+    color: var(--theme-muted);
+    font-size: 12px;
+}
+
+.theme-preview {
+    width: 100%;
+    height: 64px;
+    border-radius: 10px;
+    border: 1px solid rgba(127, 127, 127, .2);
+    padding: 12px;
+}
+
+.theme-preview::after {
+    content: "";
+    display: block;
+    width: 65%;
+    height: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.theme-preview.amethyst {
+    background: #211e32;
+}
+
+.theme-preview.amethyst::after {
+    background: #b799ff;
+}
+
+.theme-preview.crimson {
+    background: #19191e;
+}
+
+.theme-preview.crimson::after {
+    background: #e5394d;
+}
+
+.theme-preview.pearl {
+    background: #ffffff;
+}
+
+.theme-preview.pearl::after {
+    background: #8056d8;
+}
+
+@media (max-width: 650px) {
+    .theme-options {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-option {
+        transition: none;
+    }
+}
+
+
+/* =========================================
+   THEME-AWARE BUTTONS
+========================================= */
+
+/* Primary buttons across all pages */
+
+body[data-theme] #formulario-tarea button[type="submit"],
+body[data-theme] #formulario-nombre button[type="submit"],
+body[data-theme] #boton-tema {
+    background: var(--theme-primary);
+    color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* Hover effect */
+
+body[data-theme] #formulario-tarea button[type="submit"]:hover,
+body[data-theme] #formulario-nombre button[type="submit"]:hover,
+body[data-theme] #boton-tema:hover {
+    background: var(--theme-accent);
+    color: var(--theme-bg);
+    transform: translateY(-2px);
+}
+
+/* Delete buttons in My Tasks */
+
+body[data-theme] #lista-tareas .delete-task {
+    background: var(--theme-surface);
+    color: var(--theme-accent);
+    border: 1px solid var(--theme-border);
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+body[data-theme] #lista-tareas .delete-task:hover {
+    background: var(--theme-primary);
+    color: #ffffff;
+}
+
+/* Theme selector buttons in Settings */
+
+body[data-theme] .theme-option {
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    border: 2px solid var(--theme-border);
+}
+
+body[data-theme] .theme-option:hover {
+    border-color: var(--theme-accent);
+    transform: translateY(-2px);
+}
+
+body[data-theme] .theme-option[aria-pressed="true"] {
+    border-color: var(--theme-primary);
+    box-shadow: 0 0 0 2px
+        color-mix(in srgb, var(--theme-primary) 25%, transparent);
+}
+
+/* Inputs and focus states */
+
+body[data-theme] #nueva-tarea:focus,
+body[data-theme] #nombre-usuario:focus,
+body[data-theme] #fecha-tarea:focus {
+    border-color: var(--theme-accent);
+    outline: 2px solid var(--theme-accent);
+    outline-offset: 2px;
+}
+
+/* Respect reduced motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    body[data-theme] #formulario-tarea button[type="submit"],
+    body[data-theme] #formulario-nombre button[type="submit"],
+    body[data-theme] #boton-tema {
+        transition: none;
+    }
+
+    body[data-theme] #formulario-tarea button[type="submit"]:hover,
+    body[data-theme] #formulario-nombre button[type="submit"]:hover,
+    body[data-theme] #boton-tema:hover {
+        transform: none;
+    }
+}
+
+
+/* =========================================
+   THEME-AWARE INPUT FIELDS
+========================================= */
+
+/* Text, date and form fields */
+
+body[data-theme] #nueva-tarea,
+body[data-theme] #nombre-usuario,
+body[data-theme] #fecha-tarea,
+body[data-theme] .task-date-input,
+body[data-theme] #formulario-tarea input,
+body[data-theme] #formulario-nombre input {
+    background-color: var(--theme-surface);
+    color: var(--theme-text);
+    border: 1px solid var(--theme-border);
+    caret-color: var(--theme-accent);
+    box-shadow: none;
+    color-scheme: inherit;
+}
+
+/* Placeholder text */
+
+body[data-theme] #nueva-tarea::placeholder,
+body[data-theme] #nombre-usuario::placeholder,
+body[data-theme] #formulario-tarea input::placeholder,
+body[data-theme] #formulario-nombre input::placeholder {
+    color: var(--theme-muted);
+    opacity: 1;
+}
+
+/* Focus appearance */
+
+body[data-theme] #nueva-tarea:focus,
+body[data-theme] #nombre-usuario:focus,
+body[data-theme] #fecha-tarea:focus,
+body[data-theme] .task-date-input:focus {
+    background-color: var(--theme-surface);
+    border-color: var(--theme-accent);
+    outline: 2px solid var(--theme-accent);
+    outline-offset: 2px;
+}
+
+/* Browser autofill styling */
+
+body[data-theme] input:-webkit-autofill {
+    -webkit-text-fill-color: var(--theme-text);
+    -webkit-box-shadow: 0 0 0 100px
+        var(--theme-surface) inset;
+    caret-color: var(--theme-accent);
+}

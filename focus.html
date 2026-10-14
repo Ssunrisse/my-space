@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Focus Mode | My Space</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="themes.css">
+  <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="focus.css">
+  <script src="themes.js" defer></script>
+  <script src="sidebar.js" defer></script>
+  <script src="focus.js" defer></script>
+  <script src="ambient.js" defer></script>
+</head>
+<body class="focus-page">
+<main class="focus-main">
+  <div class="focus-heading"><p class="focus-eyebrow">STAY IN THE ZONE</p><h1>Focus Mode</h1><p>One task at a time. Make every minute count.</p></div>
+  <div class="focus-layout">
+    <section class="focus-card timer-card">
+      <div class="focus-modes" role="group" aria-label="Timer mode">
+        <button type="button" class="focus-mode active" data-mode="focus">Focus</button>
+        <button type="button" class="focus-mode" data-mode="short">Short Break</button>
+        <button type="button" class="focus-mode" data-mode="long">Long Break</button>
+      </div>
+      <div class="timer-circle">
+        <svg class="timer-svg" viewBox="0 0 300 300" aria-hidden="true">
+          <circle cx="150" cy="150" r="132" class="timer-track"></circle>
+          <circle id="timer-progress" cx="150" cy="150" r="132" class="timer-progress"></circle>
+        </svg>
+        <div class="timer-content"><span id="timer-label">FOCUS SESSION</span><strong id="timer-display" role="timer" aria-live="off">25:00</strong><span id="timer-status">Ready to focus</span></div>
+      </div>
+      <div class="timer-controls"><button type="button" id="timer-start">Start</button><button type="button" id="timer-reset">Reset</button></div>
+      <p class="timer-hint">Completed focus sessions are saved on this device.</p>
+    </section>
+    <div class="focus-side">
+      <section class="focus-card"><p class="focus-eyebrow">YOUR PROGRESS</p><h2>Focus Statistics</h2>
+        <div class="focus-stats"><div class="focus-stat"><span>Completed Sessions</span><strong id="focus-sessions">0</strong></div><div class="focus-stat"><span>Total Focus Time</span><strong id="focus-total">0 min</strong></div><div class="focus-stat"><span>Sessions Today</span><strong id="focus-today">0</strong></div></div>
+      </section>
+      <section class="focus-card"><p class="focus-eyebrow">PERSONALIZE</p><h2>Timer Settings</h2>
+        <form id="focus-settings-form" class="focus-settings-form">
+          <label>Focus (minutes)<input type="number" id="focus-duration" min="1" max="180" value="25" required></label>
+          <label>Short Break (minutes)<input type="number" id="short-duration" min="1" max="60" value="5" required></label>
+          <label>Long Break (minutes)<input type="number" id="long-duration" min="1" max="90" value="15" required></label>
+          <button type="submit" class="settings-save">Save Settings</button>
+        </form><p id="focus-feedback" class="focus-feedback" role="status"></p>
+      </section>
+      <section class="focus-card ambient-card" aria-labelledby="ambient-title">
+        <div class="ambient-heading">
+          <div><p class="focus-eyebrow">CREATE YOUR ATMOSPHERE</p><h2 id="ambient-title">🎧 Ambient Studio</h2></div>
+          <button id="stop-all-sounds" type="button">Stop All</button>
+        </div>
+        <p class="ambient-description">Mix atmospheric sounds, choose a scene, or save your own.</p>
+        <div class="ambient-presets" role="group" aria-label="Atmosphere presets">
+          <button type="button" data-preset="rainy">🌧️ Rainy Night</button>
+          <button type="button" data-preset="cozy">☕ Cozy Café</button>
+          <button type="button" data-preset="forest">🍃 Quiet Forest</button>
+          <button type="button" data-preset="deep">🌙 Deep Focus</button>
+        </div>
+        <div class="ambient-master">
+          <label for="ambient-master-volume">Master volume <output id="ambient-master-value" for="ambient-master-volume">70%</output></label>
+          <input id="ambient-master-volume" type="range" min="0" max="100" value="70">
+          <button type="button" id="ambient-mute" aria-pressed="false">Mute</button>
+        </div>
+        <div class="ambient-sounds" id="ambient-sounds"></div>
+        <form id="ambient-save-form" class="ambient-save-form">
+          <label for="ambient-scene-name">Save your mix</label>
+          <div class="ambient-save-row">
+            <input id="ambient-scene-name" type="text" maxlength="40" placeholder="My rainy study session" required>
+            <button type="submit">Save Mix</button>
+          </div>
+        </form>
+        <div class="ambient-saved-heading"><h3>My Saved Mixes</h3></div>
+        <div id="ambient-saved" class="ambient-saved"></div>
+        <p id="ambient-status" role="status" aria-live="polite">All sounds are stopped.</p>
+      </section>
+      <section class="focus-card focus-tip"><p class="focus-eyebrow">A LITTLE REMINDER</p><h2>Stay consistent ✨</h2><p>Focus on one thing, take meaningful breaks, and celebrate your progress.</p></section>
+    </div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cloud Sync | My Space</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="themes.css"><link rel="stylesheet" href="sidebar.css"><link rel="stylesheet" href="cloud-sync.css">
+<script src="themes.js" defer></script><script src="sidebar.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script><script src="auth-config.js" defer></script><script src="cloud-sync.js" defer></script></head>
+<body class="cloud-sync-page"><main class="cloud-sync-main"><p class="sync-eyebrow">MY SPACE 4.1</p><h1>Cloud Sync</h1><p class="sync-muted">Back up your workspace to your private account and restore it on another device. Sync is manual in this version.</p>
+<section class="sync-panel"><h2>Your account</h2><p id="sync-account">Checking account...</p><a href="auth.html">Manage account →</a></section>
+<section class="sync-panel"><h2>Local workspace</h2><p id="sync-local">Reading local data...</p><p class="sync-muted">Close other My Space tabs before restoring. Use the same website origin on each device.</p></section>
+<section class="sync-panel"><h2>Cloud snapshot</h2><p id="sync-cloud">Checking cloud...</p><div class="sync-actions"><button id="sync-upload" type="button" disabled>Upload local data</button><button id="sync-download" type="button" disabled>Restore from cloud</button></div><p class="sync-warning"><strong>Important:</strong> Upload replaces your previous cloud snapshot. Restore replaces this browser's tasks, notes, habits and preferences. These operations do not merge changes.</p></section>
+<p id="sync-status" role="status" aria-live="polite"></p></main></body></html>

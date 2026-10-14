@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Statistics | My Space</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="themes.css">
+  <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="statistics.css">
+  <script src="themes.js" defer></script>
+  <script src="sidebar.js" defer></script>
+  <script src="statistics.js" defer></script>
+</head>
+<body class="statistics-page">
+  <main class="statistics-main">
+    <header class="statistics-heading">
+      <div><p class="stats-eyebrow">YOUR PRODUCTIVITY, IN ONE PLACE</p><h1>Unified Statistics</h1><p>Tasks, habits and focus sessions — all connected.</p></div>
+      <span class="stats-updated" id="stats-updated">Refreshing…</span>
+    </header>
+
+    <section class="stats-metrics" aria-label="Productivity summary">
+      <article class="stats-metric"><span>Task Completion</span><strong id="stat-task-rate">0%</strong><small id="stat-task-detail">0 of 0 completed</small></article>
+      <article class="stats-metric"><span>Habits Today</span><strong id="stat-habit-rate">0%</strong><small id="stat-habit-detail">0 of 0 habits</small></article>
+      <article class="stats-metric"><span>Focus Time</span><strong id="stat-focus-time">0 min</strong><small id="stat-focus-sessions">0 completed sessions</small></article>
+      <article class="stats-metric"><span>Best Habit Streak</span><strong id="stat-streak">0 days</strong><small>Longest recorded streak</small></article>
+    </section>
+
+    <div class="stats-grid">
+      <section class="stats-panel" aria-labelledby="task-heading">
+        <div class="stats-panel-head"><div><p class="stats-eyebrow">TO-DO PROGRESS</p><h2 id="task-heading">Task Overview</h2></div><a href="tasks.html">View Tasks →</a></div>
+        <div class="stats-breakdown"><div><span>Total Tasks</span><strong id="stat-total">0</strong></div><div><span>Completed</span><strong id="stat-completed">0</strong></div><div><span>Pending</span><strong id="stat-pending">0</strong></div><div><span>Overdue</span><strong id="stat-overdue">0</strong></div></div>
+        <div class="stats-progress" role="progressbar" aria-label="Task completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="task-progress"><div id="task-progress-fill"></div></div>
+        <p class="stats-note">Overdue = unfinished tasks with a scheduled date before today.</p>
+      </section>
+      <section class="stats-panel" aria-labelledby="focus-heading">
+        <div class="stats-panel-head"><div><p class="stats-eyebrow">DEEP WORK</p><h2 id="focus-heading">Focus Summary</h2></div><a href="focus.html">Open Focus →</a></div>
+        <div class="stats-breakdown"><div><span>Today</span><strong id="stat-focus-today">0 min</strong></div><div><span>This Week</span><strong id="stat-focus-week">0 min</strong></div><div><span>Sessions</span><strong id="stat-focus-count">0</strong></div><div><span>Avg. Session</span><strong id="stat-focus-average">0 min</strong></div></div>
+        <p class="stats-note">Only completed focus sessions are included. Breaks are not counted.</p>
+      </section>
+      <section class="stats-panel" aria-labelledby="weekly-focus-heading">
+        <div class="stats-panel-head"><div><p class="stats-eyebrow">LAST 7 DAYS</p><h2 id="weekly-focus-heading">Focus Minutes</h2></div></div>
+        <div class="stats-chart" id="focus-chart" role="img" aria-label="Focus minutes over the last seven days"></div>
+      </section>
+      <section class="stats-panel" aria-labelledby="weekly-habits-heading">
+        <div class="stats-panel-head"><div><p class="stats-eyebrow">LAST 7 DAYS</p><h2 id="weekly-habits-heading">Habit Consistency</h2></div><a href="habits.html">View Habits →</a></div>
+        <div class="stats-chart" id="habits-chart" role="img" aria-label="Daily habit completion percentage over the last seven days"></div>
+        <p class="stats-note">A day without any scheduled habits is displayed as —, not 0%.</p>
+      </section>
+      <section class="stats-panel stats-wide" aria-labelledby="schedule-heading">
+        <div class="stats-panel-head"><div><p class="stats-eyebrow">NEXT 7 DAYS</p><h2 id="schedule-heading">Scheduled Tasks</h2></div><a href="tasks.html">Manage Tasks →</a></div>
+        <div class="stats-chart" id="tasks-chart" role="img" aria-label="Tasks scheduled over the next seven days"></div>
+        <p class="stats-note">These bars show scheduled dates, not the dates tasks were completed.</p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,385 @@
+
+/* ==========================================
+   MY SPACE 2.5 — SHARED APPLICATION SIDEBAR
+========================================== */
+
+:root {
+    --sidebar-width: 260px;
+    --mobile-header-height: 68px;
+}
+
+/* APP SHELL */
+
+body.myspace-shell {
+    box-sizing: border-box;
+    padding-left: var(--sidebar-width);
+    min-height: 100vh;
+    min-width: 0;
+}
+
+/* Hide legacy navigation headers.
+   They will be replaced by the shared sidebar. */
+
+body.myspace-shell > header {
+    display: none !important;
+}
+
+/* Ensure content uses the available space */
+
+body.myspace-shell > main {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+}
+
+body.myspace-shell > footer {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.myspace-sidebar {
+    --sb-bg: var(--theme-panel, #211e32);
+    --sb-surface: var(--theme-surface, #302a43);
+    --sb-text: var(--theme-text, #f6f3ff);
+    --sb-muted: var(--theme-muted, #aaa3bf);
+    --sb-accent: var(--theme-accent, #b799ff);
+    --sb-primary: var(--theme-primary, #8056d8);
+    --sb-border: var(--theme-border, #3a334f);
+
+    /* Typography must not inherit different fonts from each page. */
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 400;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    max-width: var(--sidebar-width);
+    height: 100dvh;
+    padding: 25px 16px 18px;
+
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background: var(--sb-bg);
+    border-right: 1px solid var(--sb-border);
+    color: var(--sb-text);
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--sb-border) transparent;
+}
+
+/* BRAND */
+
+.myspace-sidebar .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 10px 28px;
+
+    color: var(--sb-text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.sidebar-logo {
+    display: grid;
+    place-items: center;
+
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+
+    border-radius: 12px;
+    background: var(--sb-primary);
+    color: #ffffff;
+    font-size: 23px;
+    box-shadow: 0 5px 20px
+        color-mix(in srgb, var(--sb-primary) 30%, transparent);
+}
+
+.sidebar-section-title {
+    padding: 14px 13px 10px;
+    color: var(--sb-muted);
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* NAVIGATION */
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 5px;
+}
+
+.myspace-sidebar .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    min-height: 46px;
+    padding: 11px 14px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+
+    box-sizing: border-box;
+
+    background: transparent;
+    color: var(--sb-muted);
+    text-decoration: none;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+
+    transition:
+        background-color .18s ease,
+        color .18s ease,
+        transform .18s ease;
+}
+
+.sidebar-link:hover {
+    background: var(--sb-surface);
+    color: var(--sb-text);
+    transform: translateX(3px);
+}
+
+.myspace-sidebar .sidebar-link.active,
+.myspace-sidebar .sidebar-link[aria-current="page"] {
+    color: #ffffff;
+    background: var(--sb-primary);
+    font-weight: 650;
+}
+
+.sidebar-link.active:hover {
+    transform: none;
+}
+
+.sidebar-icon {
+    display: grid;
+    place-items: center;
+    width: 21px;
+    height: 21px;
+    flex-shrink: 0;
+}
+
+.sidebar-icon svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* BOTTOM */
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.sidebar-divider {
+    height: 1px;
+    margin: 12px 4px 15px;
+    background: var(--sb-border);
+}
+
+.sidebar-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin: 18px 7px 4px;
+    padding: 12px;
+    border-radius: 12px;
+
+    background: var(--sb-surface);
+    color: var(--sb-muted);
+    font-size: 11px;
+}
+
+.sidebar-status-dot {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #4ed1a2;
+    box-shadow: 0 0 10px #4ed1a255;
+}
+
+/* ==========================================
+   MOBILE TOP BAR
+========================================== */
+
+.myspace-mobile-header {
+    display: none;
+}
+
+.myspace-sidebar-overlay {
+    display: none;
+}
+
+/* ACCESSIBILITY */
+
+.myspace-sidebar a:focus-visible,
+.myspace-mobile-header button:focus-visible,
+.myspace-mobile-header a:focus-visible {
+    outline: 2px solid var(--theme-accent, #b799ff);
+    outline-offset: 3px;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+
+    body.myspace-shell {
+        padding-left: 0;
+        padding-top: var(--mobile-header-height);
+    }
+
+    body.myspace-shell > main {
+        width: 100%;
+    }
+
+    .myspace-mobile-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1002;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+
+        height: var(--mobile-header-height);
+        padding: 0 18px;
+
+        box-sizing: border-box;
+        background: var(--theme-panel, #211e32);
+        border-bottom: 1px solid var(--theme-border, #3a334f);
+    }
+
+    .mobile-brand {
+        color: var(--theme-text, #f6f3ff);
+        font-size: 21px;
+        font-weight: 800;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .mobile-brand span {
+        color: var(--theme-accent, #b799ff);
+    }
+
+    .sidebar-toggle {
+        display: grid;
+        place-items: center;
+
+        width: 42px;
+        height: 42px;
+        padding: 0;
+
+        background: var(--theme-surface, #302a43);
+        border: 1px solid var(--theme-border, #3a334f);
+        border-radius: 11px;
+        color: var(--theme-text, #f6f3ff);
+        cursor: pointer;
+    }
+
+    .sidebar-toggle svg {
+        width: 23px;
+        height: 23px;
+        stroke: currentColor;
+        stroke-width: 2;
+        fill: none;
+        stroke-linecap: round;
+    }
+
+    .myspace-sidebar {
+        z-index: 1004;
+        width: min(290px, 85vw);
+        min-width: 0;
+        max-width: none;
+        transform: translateX(-105%);
+        visibility: hidden;
+
+        transition:
+            transform .25s ease,
+            visibility .25s ease;
+    }
+
+    body.sidebar-open .myspace-sidebar {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    .myspace-sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1003;
+
+        background: rgba(0, 0, 0, .6);
+    }
+
+    body.sidebar-open .myspace-sidebar-overlay {
+        display: block;
+    }
+
+    body.sidebar-open {
+        overflow: hidden;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+    .myspace-mobile-header {
+        padding: 0 13px;
+    }
+
+    .mobile-brand {
+        font-size: 19px;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    .myspace-sidebar,
+    .sidebar-link {
+        transition: none;
+    }
+}

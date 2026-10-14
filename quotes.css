@@ -1,0 +1,308 @@
+
+/* =====================================
+   MY SPACE — DAILY INSPIRATION
+===================================== */
+
+body.quotes-page {
+    min-height: 100vh;
+    background: var(--theme-bg, #10101c);
+    color: var(--theme-text, #f6f3ff);
+}
+
+body.quotes-page main.quotes-main {
+    width: min(100%, 1650px);
+    max-width: none;
+    margin: 0 auto;
+    padding: 38px clamp(18px, 4vw, 72px) 48px;
+    background: transparent;
+}
+
+.quotes-intro {
+    margin-bottom: 30px;
+}
+
+.quotes-eyebrow {
+    color: var(--theme-accent, #b799ff);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+body.quotes-page .quotes-intro h1 {
+    font-size: clamp(30px, 4vw, 48px);
+    margin: 12px 0;
+    color: var(--theme-text);
+}
+
+body.quotes-page .quotes-intro p:not(.quotes-eyebrow) {
+    color: var(--theme-muted);
+}
+
+.quotes-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+}
+
+/* ANIME GIF PANEL */
+
+body.quotes-page .quotes-visual {
+    position: relative;
+    isolation: isolate;
+    min-height: 460px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 24px;
+    border: 1px solid var(--theme-border);
+
+    background:
+        radial-gradient(
+            circle at 75% 30%,
+            var(--theme-accent),
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            var(--theme-surface),
+            var(--theme-bg)
+        );
+}
+
+.quotes-visual img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.quotes-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, .85),
+        rgba(0, 0, 0, .05) 70%
+    );
+}
+
+.quotes-visual-caption {
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+    right: 24px;
+    z-index: 2;
+}
+
+.quotes-visual-caption span {
+    color: #f0c8d7;
+    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+body.quotes-page .quotes-visual-caption h2 {
+    font-size: clamp(30px, 4vw, 45px);
+    color: #ffffff;
+    margin: 10px 0;
+}
+
+body.quotes-page .quotes-visual-caption p {
+    color: #e0d9e7;
+    margin: 0;
+}
+
+/* QUOTE PANEL */
+
+body.quotes-page .quotes-panel {
+    min-width: 0;
+    margin: 0;
+    padding: clamp(24px, 3vw, 46px);
+    border: 1px solid var(--theme-border);
+    border-radius: 24px;
+    background: var(--theme-panel);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.quotes-panel-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+#quote-counter {
+    color: var(--theme-muted);
+    font-size: 13px;
+}
+
+.quote-content {
+    padding: 35px 0;
+    animation: quote-enter .5s ease;
+}
+
+.quote-symbol {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 90px;
+    line-height: .8;
+    color: var(--theme-accent);
+    opacity: .65;
+}
+
+body.quotes-page #quote-text {
+    margin: 20px 0 24px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--theme-text);
+    font-family: Georgia, serif;
+    font-size: clamp(24px, 2.5vw, 37px);
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.quote-category {
+    display: inline-block;
+    color: var(--theme-accent);
+    font-size: 12px;
+    font-weight: 700;
+    border: 1px solid var(--theme-border);
+    background: var(--theme-surface);
+    border-radius: 30px;
+    padding: 8px 15px;
+}
+
+.quote-progress {
+    width: 100%;
+    height: 5px;
+    background: var(--theme-surface);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 22px;
+}
+
+#quote-progress-fill {
+    width: 0%;
+    height: 100%;
+    background: var(--theme-accent);
+    border-radius: 20px;
+}
+
+.quote-controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+body.quotes-page .quote-controls button {
+    min-height: 43px;
+    padding: 10px 17px;
+    border-radius: 11px;
+    border: 1px solid var(--theme-border);
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform .2s, background-color .2s;
+}
+
+body.quotes-page .quote-controls button:hover {
+    transform: translateY(-2px);
+    border-color: var(--theme-accent);
+}
+
+body.quotes-page #quote-play {
+    background: var(--theme-primary);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+.quote-timer-label {
+    color: var(--theme-muted);
+    font-size: 12px;
+    margin: 16px 0 0;
+}
+
+.quotes-footer-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-align: center;
+    padding: 30px 0 0;
+    color: var(--theme-accent);
+}
+
+.quotes-footer-message p {
+    color: var(--theme-muted);
+    font-size: 13px;
+}
+
+@keyframes quote-enter {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 950px) {
+    .quotes-layout {
+        grid-template-columns: 1fr;
+    }
+
+    body.quotes-page .quotes-visual {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    body.quotes-page main.quotes-main {
+        padding: 24px 14px;
+    }
+
+    body.quotes-page .quotes-panel {
+        padding: 24px 18px;
+    }
+
+    .quotes-visual-caption {
+        left: 22px;
+        bottom: 24px;
+    }
+
+    .quote-content {
+        padding: 28px 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .quote-content {
+        animation: none;
+    }
+
+    body.quotes-page .quote-controls button {
+        transition: none;
+    }
+
+    body.quotes-page .quote-controls button:hover {
+        transform: none;
+    }
+}
+
+#anime-gif[hidden] {
+    display: none;
+}

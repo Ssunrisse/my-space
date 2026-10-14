@@ -1,0 +1,677 @@
+
+/* =========================================
+   MY SPACE — DASHBOARD 2.0
+========================================= */
+
+:root {
+    --bg: #10101c;
+    --panel: #211e32;
+    --panel-alt: #2c2740;
+    --text: #f5f2ff;
+    --muted: #a9a2be;
+    --accent: #b799ff;
+    --accent-strong: #8056d8;
+    --border: #39334e;
+    --shadow: 0 12px 40px rgba(0, 0, 0, .15);
+}
+
+body.modo-claro {
+    --bg: #f4f1fa;
+    --panel: #ffffff;
+    --panel-alt: #eee8f7;
+    --text: #28213c;
+    --muted: #716783;
+    --accent: #7045bf;
+    --accent-strong: #8056d8;
+    --border: #e0d6ed;
+    --shadow: 0 12px 35px rgba(65, 39, 105, .06);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body.dashboard-page {
+    min-height: 100vh;
+    margin: 0;
+    background:
+        radial-gradient(ellipse at 10% 0%,
+            rgba(126, 82, 204, .12), transparent 40%),
+        var(--bg);
+    color: var(--text);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+/* HEADER */
+
+.dashboard-header {
+    width: 100%;
+    padding: 20px clamp(20px, 4vw, 72px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    color: var(--accent);
+    font-size: 24px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.dashboard-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.dashboard-nav a {
+    color: var(--muted);
+    padding: 11px 17px;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 14px;
+    transition: .2s ease;
+}
+
+.dashboard-nav a:hover {
+    color: var(--text);
+    background: var(--panel-alt);
+}
+
+.dashboard-nav a.active {
+    background: var(--accent-strong);
+    color: #ffffff;
+}
+
+/* MAIN LAYOUT */
+
+main.dashboard-main {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 35px clamp(20px, 4vw, 72px) 55px;
+    flex: 1;
+}
+
+.welcome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+}
+
+.welcome h1 {
+    color: var(--text);
+    font-size: clamp(28px, 3vw, 44px);
+    margin: 0 0 8px;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    margin: 0;
+}
+
+.today-label {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 20px;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* WIDGET GRID */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.widget {
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: var(--panel);
+    box-shadow: var(--shadow);
+}
+
+.widget-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 24px;
+}
+
+.widget-heading h2 {
+    font-size: 22px;
+    color: var(--text);
+    margin: 0;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #48d5a4;
+    box-shadow: 0 0 14px #48d5a4;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    50% { opacity: .45; }
+}
+
+/* =========================================
+   ANALOG CLOCK
+========================================= */
+
+.clock-widget {
+    display: flex;
+    flex-direction: column;
+}
+
+.clock-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 15px 0;
+}
+
+.analog-clock {
+    position: relative;
+    width: min(100%, 370px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid var(--panel-alt);
+    background:
+        radial-gradient(circle,
+            var(--panel-alt) 0%,
+            var(--panel) 75%);
+    box-shadow:
+        inset 0 0 35px rgba(115, 79, 179, .1),
+        0 15px 35px rgba(0, 0, 0, .12);
+}
+
+.clock-mark {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 3px;
+    height: 12px;
+    background: var(--muted);
+    border-radius: 3px;
+    transform-origin: center center;
+}
+
+.clock-mark.major {
+    width: 4px;
+    height: 18px;
+    background: var(--accent);
+}
+
+.clock-hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: 50% 100%;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.hour-hand {
+    width: 7px;
+    height: 24%;
+    margin-left: -3.5px;
+    background: var(--text);
+}
+
+.minute-hand {
+    width: 5px;
+    height: 34%;
+    margin-left: -2.5px;
+    background: var(--accent);
+}
+
+.second-hand {
+    width: 2px;
+    height: 40%;
+    margin-left: -1px;
+    background: #f28db2;
+    z-index: 4;
+}
+
+.clock-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 13px;
+    height: 13px;
+    transform: translate(-50%, -50%);
+    background: var(--text);
+    border: 3px solid var(--accent-strong);
+    border-radius: 50%;
+    z-index: 6;
+}
+
+.digital-display {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    padding: 9px 15px;
+    background: var(--panel-alt);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    font-family: Consolas, monospace;
+    font-size: clamp(16px, 2vw, 23px);
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    z-index: 7;
+}
+
+.clock-date {
+    text-align: center;
+    color: var(--accent);
+    font-size: 16px;
+    margin: 15px 0 0;
+}
+
+/* =========================================
+   CALENDAR
+========================================= */
+
+.calendar-widget {
+    display: flex;
+    flex-direction: column;
+}
+
+.today-button {
+    background: var(--panel-alt);
+    color: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 9px 15px;
+    cursor: pointer;
+}
+
+.calendar-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.calendar-toolbar h3 {
+    color: var(--text);
+    font-size: 20px;
+    margin: 0;
+}
+
+.calendar-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.calendar-actions button {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    font-size: 25px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--panel-alt);
+    color: var(--text);
+    cursor: pointer;
+}
+
+.calendar-actions button:hover,
+.today-button:hover {
+    background: var(--accent-strong);
+    color: white;
+}
+
+.calendar-weekdays,
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 7px;
+}
+
+.calendar-weekdays {
+    margin-bottom: 9px;
+}
+
+.calendar-weekdays span {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 9px 0;
+}
+
+.calendar-day {
+    position: relative;
+    min-height: 58px;
+    padding: 9px 5px;
+    background: var(--panel-alt);
+    border: 1px solid transparent;
+    border-radius: 11px;
+    color: var(--text);
+    font-size: 14px;
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+}
+
+.calendar-day:hover {
+    border-color: var(--accent);
+}
+
+.calendar-day.today {
+    color: var(--accent);
+    border-color: var(--accent-strong);
+}
+
+.calendar-day.selected {
+    background: var(--accent-strong);
+    color: #ffffff;
+}
+
+.calendar-day.has-tasks::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    bottom: 7px;
+    left: calc(50% - 3px);
+    background: #d5b7ff;
+    border-radius: 50%;
+}
+
+.calendar-day.selected.has-tasks::after {
+    background: #ffffff;
+}
+
+.calendar-empty {
+    min-height: 58px;
+}
+
+.calendar-legend {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.calendar-legend i {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+}
+
+/* =========================================
+   DAILY PLANNER
+========================================= */
+
+.planner-widget {
+    grid-column: 1 / -1;
+}
+
+.task-count {
+    background: var(--panel-alt);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 7px 12px;
+    font-size: 12px;
+}
+
+.task-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.task-form input {
+    flex: 1;
+    min-width: 200px;
+    background: var(--panel-alt);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 15px;
+}
+
+.task-form input::placeholder {
+    color: var(--muted);
+}
+
+.task-form button {
+    background: var(--accent-strong);
+    border: none;
+    border-radius: 12px;
+    padding: 14px 22px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.scheduled-tasks {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+.scheduled-task {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: var(--panel-alt);
+    border-radius: 12px;
+}
+
+.scheduled-task input {
+    width: 19px;
+    height: 19px;
+    accent-color: var(--accent-strong);
+    cursor: pointer;
+}
+
+.scheduled-task span {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    color: var(--text);
+}
+
+.scheduled-task span.done {
+    text-decoration: line-through;
+    color: var(--muted);
+}
+
+.scheduled-task button {
+    background: transparent;
+    color: #e89ab3;
+    border: none;
+    padding: 7px 10px;
+    cursor: pointer;
+}
+
+.empty-message {
+    color: var(--muted);
+    text-align: center;
+    padding: 20px;
+}
+
+/* =========================================
+   ACCESSIBILITY & RESPONSIVE
+========================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+@media (min-width: 1100px) {
+    .dashboard-grid {
+        grid-template-rows: minmax(430px, auto) auto;
+    }
+}
+
+@media (max-width: 900px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .planner-widget {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard-header {
+        padding: 18px;
+    }
+
+    .dashboard-nav {
+        width: 100%;
+    }
+
+    .dashboard-nav a {
+        font-size: 12px;
+        padding: 9px 11px;
+    }
+
+    main.dashboard-main {
+        padding: 22px 14px 40px;
+    }
+
+    .widget {
+        padding: 20px 14px;
+    }
+
+    .analog-clock {
+        width: min(100%, 300px);
+    }
+
+    .calendar-day,
+    .calendar-empty {
+        min-height: 45px;
+    }
+
+    .calendar-weekdays,
+    .calendar-days {
+        gap: 4px;
+    }
+
+    .task-form button {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .status-dot {
+        animation: none;
+    }
+
+    .calendar-day,
+    .dashboard-nav a {
+        transition: none;
+    }
+}
+
+
+/* Final overrides for the dashboard */
+
+.dashboard-page .widget .eyebrow,
+.dashboard-page .clock-date {
+    color: var(--accent);
+}
+
+.dashboard-page .widget .empty-message,
+.dashboard-page .subtitle {
+    color: var(--muted);
+}
+
+.dashboard-page .widget .digital-display {
+    color: var(--text);
+}
+
+.dashboard-page .widget .scheduled-task span {
+    color: var(--text);
+}
+
+.dashboard-page .widget .scheduled-task span.done {
+    color: var(--muted);
+}
+
+.dashboard-page .widget .calendar-legend {
+    color: var(--muted);
+}
+
+.dashboard-page .empty-message[hidden] {
+    display: none;
+}
+
+.dashboard-page .widget .task-form input {
+    color: var(--text);
+}
+
+/* Unified calendar task layout */
+
+.dashboard-page .scheduled-task .task-content {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+}
+
+.dashboard-page .scheduled-task .task-content span {
+    color: var(--text);
+    overflow-wrap: anywhere;
+}
+
+.dashboard-page .scheduled-task .task-content span.done {
+    color: var(--muted);
+}
+
+.dashboard-page .empty-message[hidden] {
+    display: none;
+}

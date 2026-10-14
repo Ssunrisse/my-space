@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes & Journal | My Space</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="themes.css"><link rel="stylesheet" href="sidebar.css"><link rel="stylesheet" href="notes.css">
+<script src="themes.js" defer></script><script src="sidebar.js" defer></script><script src="notes.js" defer></script>
+</head>
+<body class="notes-page">
+<main class="notes-main">
+<header class="notes-top"><div><p class="notes-kicker">YOUR IDEAS, ORGANIZED</p><h1>Notes & Journal</h1><p>Capture ideas, organize study notes, and write every day.</p></div><button type="button" id="new-note" class="notes-primary">+ New Note</button></header>
+<div class="notes-workspace">
+<aside class="notes-browser" aria-label="Notes browser">
+ <label class="notes-search-label" for="notes-search">Search notes</label><input id="notes-search" type="search" placeholder="Search titles and content...">
+ <div class="notes-folder-head"><h2>Folders</h2><button type="button" id="new-folder" title="Create folder" aria-label="Create folder">+</button></div>
+ <nav id="notes-folders" class="notes-folders" aria-label="Note folders"></nav>
+ <div class="notes-list-head"><h2 id="notes-list-heading">All Notes</h2><span id="notes-count">0</span></div>
+ <div id="notes-list" class="notes-list"></div>
+</aside>
+<section class="notes-editor-card" aria-label="Note editor">
+ <div id="notes-empty" class="notes-empty"><span aria-hidden="true">✦</span><h2>Your next idea starts here.</h2><p>Select an existing note or create a new one.</p><button type="button" id="empty-new-note" class="notes-primary">Create a Note</button></div>
+ <div id="notes-editor" hidden>
+  <div class="notes-editor-actions"><span id="notes-save-status" role="status">Saved</span><div class="notes-action-buttons"><button type="button" id="note-pin" aria-pressed="false">☆ Favorite</button><button type="button" id="note-reading">Study Mode</button><button type="button" id="note-export">Export .md</button><button type="button" id="note-delete" class="notes-danger">Delete</button></div></div>
+  <label for="note-title" class="notes-visually-hidden">Title</label><input id="note-title" maxlength="160" placeholder="Untitled note">
+  <div class="notes-meta"><label for="note-folder">Folder</label><select id="note-folder"></select><span id="note-updated"></span></div>
+  <div class="notes-toolbar" role="toolbar" aria-label="Text formatting">
+   <button type="button" data-command="bold" title="Bold"><strong>B</strong></button><button type="button" data-command="italic" title="Italic"><em>I</em></button><button type="button" data-command="underline" title="Underline"><u>U</u></button>
+   <button type="button" data-block="h2" title="Heading">H2</button><button type="button" data-block="p" title="Paragraph">¶</button><button type="button" data-command="insertUnorderedList" title="Bulleted list">• List</button><button type="button" data-command="insertOrderedList" title="Numbered list">1. List</button><button type="button" data-block="blockquote" title="Quote">❝</button>
+  </div>
+  <div id="note-content" contenteditable="true" role="textbox" aria-label="Note content" aria-multiline="true" data-placeholder="Start writing your thoughts..."></div>
+ </div>
+</section>
+</div>
+<div id="notes-dialog" class="notes-modal" hidden><div class="notes-dialog-card" role="dialog" aria-modal="true" aria-labelledby="notes-dialog-title"><h2 id="notes-dialog-title">New Folder</h2><form id="folder-form"><label for="folder-name">Folder name</label><input id="folder-name" maxlength="40" required placeholder="Study, Work, Personal..."><div class="notes-dialog-actions"><button type="button" id="folder-cancel">Cancel</button><button class="notes-primary" type="submit">Create Folder</button></div></form></div></div>
+<div id="notes-toast" role="status" class="notes-toast" hidden></div>
+</main>
+</body></html>

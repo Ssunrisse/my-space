@@ -1,0 +1,64 @@
+/* My Space 3.8 — unobtrusive notifications */
+.myspace-toast-region {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 2500;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: min(370px, calc(100vw - 28px));
+  pointer-events: none;
+}
+.myspace-toast {
+  --toast-surface: var(--theme-panel, #211e32);
+  --toast-text: var(--theme-text, #f6f3ff);
+  --toast-border: var(--theme-border, #3a334f);
+  --toast-accent: var(--theme-accent, #b799ff);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--toast-border);
+  border-left: 3px solid var(--toast-accent);
+  background: var(--toast-surface);
+  color: var(--toast-text);
+  box-shadow: 0 14px 38px rgba(0,0,0,.23);
+  font: 500 13px/1.45 'Segoe UI', Arial, sans-serif;
+  pointer-events: auto;
+  animation: myspace-toast-enter .22s ease-out both;
+}
+.myspace-toast--error {border-left-color:#df6b71}
+.myspace-toast--success {border-left-color:#4bbf9e}
+.myspace-toast-symbol {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: var(--theme-surface, #302a43);
+  color: var(--toast-text);
+  font-weight: 800;
+}
+.myspace-toast-text {flex:1; min-width:0; overflow-wrap:anywhere}
+.myspace-toast-dismiss {
+  flex: 0 0 28px;
+  width:28px;
+  height:28px;
+  display:grid;
+  place-items:center;
+  margin:0;
+  padding:0;
+  border:0;
+  border-radius:8px;
+  background:transparent;
+  color:var(--toast-text);
+  font: 24px/1 Arial,sans-serif;
+  cursor:pointer;
+}
+.myspace-toast-dismiss:hover {background:var(--theme-surface,#302a43)}
+.myspace-toast-dismiss:focus-visible {outline:2px solid var(--toast-accent);outline-offset:2px}
+@keyframes myspace-toast-enter {from {opacity:0; transform:translateY(10px)}to {opacity:1;transform:translateY(0)}}
+@media(max-width:600px) {.myspace-toast-region {left:14px;right:14px;bottom:15px;width:auto}}
+@media(prefers-reduced-motion:reduce) {.myspace-toast {animation:none}}

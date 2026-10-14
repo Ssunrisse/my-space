@@ -1,114 +1,258 @@
+
 <!DOCTYPE html>
-<!-- My Space - Personal Productivity Dashboard -->
-<html lang="es">
-<head> 
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Space by sunrise</title>
+
+    <title>Dashboard | My Space</title>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="dashboard-widgets.css">
+    <link rel="stylesheet" href="activity-center.css">
+
+    <script src="dashboard.js" defer></script>
+    <script src="shared-tasks.js" defer></script>
+    <script src="themes.js" defer></script>
+    <script src="sidebar.js" defer></script>
+    <script src="dashboard-widgets.js" defer></script>
+    <script src="activity-center.js" defer></script>
 </head>
 
-<body>
+<body class="dashboard-page">
 
-    <!--CABECERA-->
-    <header> 
-        <h1>✨ My Space</h1>
+    
+<header class="site-header">
 
-        <nav> 
-            <a href="#Inicio">Inicio</a>
-            <a href="#Tareas">Mis Tareas</a>
-            <a href="#Frase">Frase del día</a>
-            <a href="#Objetivos">Mis objetivos</a>
-        </nav>
+    <a href="index.html" class="site-brand">
+        ✦ My Space
+    </a>
 
-        <button id="boton-tema" type="button">
-            ☀️ Cambiar tema
-        </button>
-    </header>
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Dashboard</a>
+        <a href="tasks.html">My Tasks</a>
+        <a href="statistics.html">Statistics</a>
+        <a href="quotes.html">Daily Quote</a>
+        <a href="settings.html">Settings</a>
+    </nav>
 
-    <!--CONTENIDO PRINCIPAL-->
-    <main>
-
-        <!--BIENVENIDA-->
-        <section id="#Inicio">
-            <h2 id="saludo">Cargando Saludo...</h2>
-            <p>Bienvenido a tu espacio personal.</p>
-            <p>Organiza tus tareas y disfruta del día</p>
-        </section>
+</header>
 
 
-        <!--Configuracion-->
-        <section id="configuracion">
-            <h2>⚙️ Personalizacion</h2>
+    <main class="dashboard-main">
 
-            <form id="formulario-nombre">
-                
-                <label for="nombre-usuario">Tu nombre:</label>
-
-                <input
-                type = "text"
-                id = "nombre-usuario"
-                placeholder="Escribe tu nombre..."
-                maxlength="30"
-                >
-                <button type="submit">Guardar nombre</button>
-            </form>
-        </section>
-
-
-        <!--RELOJ-->
-        <section id="reloj">
-            <h2>🕒 Mi reloj</h2>
-            
-            <p id="Hora-actual">--:--:--</p>
-
-            <p id ="fecha-actual">Cargando fecha...</p>
-        </section>
-        <!--TAREAS-->
-        <section id="#Tareas">
-            <h2>✅ Mis Tareas</h2>
-
-            <form id="formulario-tarea">
-                <input
-                    type="text"
-                    id="nueva-tarea"
-                    placeholder="Escribe una nueva tarea"
-                    required
-                >
-
-                <button type="submit">Añadir Tarea</button>
-            </form>
-
-            <ul id="lista-tareas"></ul>
-
-            <p id="contador-tareas">0 tareas completadas</p>
-
-        </section>
-
-        <!--OBJETIVOS-->
-        <section id="#Objetivos">
-            <h2>🎯 Mis Objetivos</h2>
-            <p> Aprender a hacer paginas web</p>
-        </section>
-        <!--FRASE DEL DIA-->
-        <section id="#Frase">
-            <h2>💜 Frase del día</h2>
-
-            <article>
-                <p>
-                    Los grandes proyectos comienzan
-                    con un pequeño paso.
+        <div class="welcome">
+            <div>
+                <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+                <h1 id="dashboard-greeting">Welcome back! 👋</h1>
+                <p class="subtitle">
+                    Make today a little more productive.
                 </p>
-            </article>
+            </div>
+
+            <div class="today-label" id="today-label"></div>
+        </div>
+
+        <div class="dashboard-actions">
+            <p>Make your workspace your own.</p>
+            <button id="customize-dashboard" type="button" aria-expanded="false" aria-controls="dashboard-customizer">⚙ Customize widgets</button>
+        </div>
+        <section id="dashboard-customizer" class="dashboard-customizer" hidden aria-label="Customize dashboard widgets">
+            <p>Show or hide widgets, and drag widgets by their handles to change their positions.</p>
+            <div id="widget-visibility-controls" class="widget-visibility-controls"></div>
+            <button id="reset-dashboard" type="button">Reset layout</button>
         </section>
+        <div id="activity-alert" class="activity-alert" role="status" hidden>
+            <span id="activity-alert-text"></span>
+            <button type="button" id="activity-alert-dismiss" aria-label="Dismiss reminder">Dismiss</button>
+        </div>
+        <div class="dashboard-grid personalized-grid" id="personalized-grid">
+
+            <!-- TODAY'S TASKS -->
+            <section class="widget overview-widget" data-widget="today" data-widget-title="Today's Tasks">
+                <div class="widget-heading"><div><p class="eyebrow">RIGHT NOW</p><h2>Today's Tasks</h2></div><a class="widget-link" href="tasks.html">All tasks →</a></div>
+                <ul id="today-tasks-list" class="overview-task-list"></ul>
+                <p id="today-tasks-empty" class="overview-empty" hidden>No tasks scheduled for today. Enjoy your day! ✨</p>
+            </section>
+
+            <!-- TASK STATISTICS -->
+            <section class="widget overview-widget" data-widget="stats" data-widget-title="Task Overview">
+                <div class="widget-heading"><div><p class="eyebrow">LIVE DATA</p><h2>Task Overview</h2></div><a class="widget-link" href="statistics.html">Statistics →</a></div>
+                <div class="overview-stats">
+                    <div><span>Total</span><strong id="dash-stat-total">0</strong></div>
+                    <div><span>Completed</span><strong id="dash-stat-completed">0</strong></div>
+                    <div><span>Pending</span><strong id="dash-stat-pending">0</strong></div>
+                    <div><span>Overdue</span><strong id="dash-stat-overdue">0</strong></div>
+                </div>
+                <div class="overview-progress" role="progressbar" aria-label="Task completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="dash-progress-fill"></div></div>
+                <p id="dash-completion-label" class="overview-caption">0% complete</p>
+            </section>
+
+            <!-- FOCUS OVERVIEW -->
+            <section class="widget overview-widget" data-widget="focus" data-widget-title="Focus Summary">
+                <div class="widget-heading"><div><p class="eyebrow">STAY IN THE ZONE</p><h2>Focus Summary</h2></div><a class="widget-link" href="focus.html">Focus Mode →</a></div>
+                <div class="focus-summary"><div><strong id="dash-focus-today">0</strong><span>Sessions today</span></div><div><strong id="dash-focus-minutes">0</strong><span>Total minutes</span></div></div>
+                <p class="overview-caption">Counts completed focus sessions only.</p>
+            </section>
+
+            <!-- UPCOMING / OVERDUE TASKS -->
+            <section class="widget activity-widget" data-widget="upcoming" data-widget-title="Task Reminders">
+                <div class="widget-heading"><div><p class="eyebrow">YOUR PRIORITIES</p><h2>Task Reminders</h2></div><a class="widget-link" href="tasks.html">Manage tasks →</a></div>
+                <div class="activity-metrics"><span id="activity-overdue-count">0 overdue</span><span id="activity-today-count">0 due today</span></div>
+                <ul id="activity-upcoming-list" class="activity-list"></ul>
+                <p id="activity-upcoming-empty" class="overview-empty" hidden>No pending tasks due in the next 7 days.</p>
+            </section>
+
+            <!-- HABIT SUMMARY -->
+            <section class="widget activity-widget" data-widget="habits" data-widget-title="Today's Habits">
+                <div class="widget-heading"><div><p class="eyebrow">BUILD CONSISTENCY</p><h2>Today's Habits</h2></div><a class="widget-link" href="habits.html">Habit Tracker →</a></div>
+                <div class="activity-habit-progress"><strong id="activity-habit-count">0 / 0</strong><span>completed today</span></div>
+                <div class="activity-progress" role="progressbar" aria-label="Today's habits completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="activity-habit-fill"></div></div>
+                <ul id="activity-habit-list" class="activity-list"></ul>
+                <p id="activity-habit-empty" class="overview-empty" hidden>Create your first habit to begin tracking.</p>
+            </section>
+
+            <!-- ACTIVITY HISTORY -->
+            <section class="widget activity-widget" data-widget="activity" data-widget-title="Recent Focus Activity">
+                <div class="widget-heading"><div><p class="eyebrow">RECENTLY COMPLETED</p><h2>Recent Focus Activity</h2></div><a class="widget-link" href="focus.html">Start focusing →</a></div>
+                <ul id="activity-focus-list" class="activity-list"></ul>
+                <p id="activity-focus-empty" class="overview-empty" hidden>No completed Focus sessions yet.</p>
+            </section>
+
+            <!-- QUICK ACCESS -->
+            <section class="widget activity-widget" data-widget="shortcuts" data-widget-title="Quick Access">
+                <div class="widget-heading"><div><p class="eyebrow">GET GOING</p><h2>Quick Access</h2></div></div>
+                <div class="activity-shortcuts">
+                    <a href="tasks.html">✓ My Tasks</a>
+                    <a href="habits.html">🔥 Habit Tracker</a>
+                    <a href="focus.html">◷ Focus Mode</a>
+                    <a href="notes.html">✎ Notes & Journal</a>
+                    <a href="statistics.html">▥ Statistics</a>
+                    <a href="backup.html">⇩ Backup & Restore</a>
+                </div>
+            </section>
+
+            <!-- ANALOG CLOCK -->
+            <section class="widget clock-widget" data-widget="clock" data-widget-title="Live Clock">
+
+                <div class="widget-heading">
+                    <div>
+                        <p class="eyebrow">LOCAL TIME</p>
+                        <h2>Live Clock</h2>
+                    </div>
+                    <span class="status-dot" aria-label="Live"></span>
+                </div>
+
+                <div class="clock-container">
+                    <div class="analog-clock" aria-label="Analog clock">
+
+                        <div class="clock-marks" id="clock-marks"></div>
+
+                        <div class="clock-hand hour-hand" id="hour-hand"></div>
+                        <div class="clock-hand minute-hand" id="minute-hand"></div>
+                        <div class="clock-hand second-hand" id="second-hand"></div>
+
+                        <div class="clock-center"></div>
+
+                        <div class="digital-display" id="digital-clock"
+                             role="timer" aria-live="off">
+                            --:--:--
+                        </div>
+
+                    </div>
+                </div>
+
+                <p class="clock-date" id="clock-date">
+                    Loading date...
+                </p>
+            </section>
+
+            <!-- MONTHLY CALENDAR -->
+            <section class="widget calendar-widget" data-widget="calendar" data-widget-title="Calendar">
+
+                <div class="widget-heading">
+                    <div>
+                        <p class="eyebrow">PLAN AHEAD</p>
+                        <h2>Calendar</h2>
+                    </div>
+
+                    <button id="calendar-today" class="today-button"
+                            type="button">
+                        Today
+                    </button>
+                </div>
+
+                <div class="calendar-toolbar">
+
+                    <h3 id="calendar-month"></h3>
+
+                    <div class="calendar-actions">
+                        <button id="previous-month" type="button"
+                                aria-label="Previous month">‹</button>
+                        <button id="next-month" type="button"
+                                aria-label="Next month">›</button>
+                    </div>
+
+                </div>
+
+                <div class="calendar-weekdays" aria-hidden="true">
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                    <span>Sun</span>
+                </div>
+
+                <div class="calendar-days" id="calendar-days"></div>
+
+                <div class="calendar-legend">
+                    <span><i></i> Days with tasks</span>
+                    <span>Select a day to plan</span>
+                </div>
+
+            </section>
+
+            <!-- SCHEDULED TASKS -->
+            <section class="widget planner-widget" data-widget="planner" data-widget-title="Daily Planner">
+
+                <div class="widget-heading">
+                    <div>
+                        <p class="eyebrow">DAILY PLANNER</p>
+                        <h2 id="selected-date-title">Selected Day</h2>
+                    </div>
+                    <span class="task-count" id="day-task-count">0 tasks</span>
+                </div>
+
+                <form id="calendar-task-form" class="task-form">
+                    <input
+                        id="calendar-task-input"
+                        type="text"
+                        placeholder="What do you need to do?"
+                        maxlength="160"
+                        aria-label="New scheduled task"
+                        required
+                    >
+
+                    <button type="submit">+ Add Task</button>
+                </form>
+
+                <ul class="scheduled-tasks" id="scheduled-tasks"></ul>
+
+                <p class="empty-message" id="empty-tasks">
+                    No tasks for this day. Enjoy your free time! ✨
+                </p>
+
+            </section>
+
+        </div>
 
     </main>
 
-    <!--PIE DE PAGINA-->
-    <footer>
-        <p>Hecho con amor mientras aprendo HTML.</p>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>

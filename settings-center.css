@@ -1,0 +1,19 @@
+/* My Space 3.6 — Settings Center */
+body.settings-page{background:var(--theme-bg,#10101c);color:var(--theme-text,#f5f2ff)}
+body.myspace-shell>main.settings-main{box-sizing:border-box;max-width:1350px;width:100%;margin:0 auto;padding:40px clamp(18px,4vw,64px) 70px}
+.settings-heading{margin-bottom:28px}.settings-eyebrow{color:var(--theme-accent,#b799ff);font-size:11px;font-weight:800;letter-spacing:2px}.settings-heading h1{font-size:clamp(30px,4vw,44px);margin:8px 0}.settings-heading>p:last-child{color:var(--theme-muted,#aaa3bf)}
+.settings-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+body.settings-page .settings-panel{min-width:0;margin:0;width:100%;padding:26px;border:1px solid var(--theme-border,#39334e);border-radius:20px;background:var(--theme-panel,#211e32);color:var(--theme-text,#fff)}
+.settings-panel h2{margin:0 0 10px;font-size:21px;color:var(--theme-text,#fff)}
+.settings-panel>p,.settings-panel form>label,.settings-note{font-size:13px;color:var(--theme-muted,#aaa3bf);line-height:1.6}.settings-panel>p{margin:0 0 20px}.settings-panel .settings-note{margin-top:13px;font-size:12px}
+.settings-wide{grid-column:1/-1}.settings-form-row{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
+body.settings-page .settings-form-row input{flex:1;min-width:150px;padding:12px 13px;border-radius:11px;border:1px solid var(--theme-border,#39334e);background:var(--theme-surface,#302a43);color:var(--theme-text,#fff)}
+body.settings-page .settings-form-row button{padding:12px 20px;background:var(--theme-primary,#8056d8);color:white;border:0;border-radius:11px;cursor:pointer}
+.theme-options{display:grid;gap:10px}.theme-option{display:flex;align-items:center;gap:13px;padding:12px;border:1px solid var(--theme-border,#39334e);background:var(--theme-surface,#302a43);border-radius:12px;cursor:pointer;font-size:14px;color:var(--theme-text,#fff)}.theme-option:has(input:checked){outline:2px solid var(--theme-accent,#b799ff)}
+.theme-swatch{width:26px;height:26px;border-radius:50%;border:2px solid rgba(120,120,120,.3);flex-shrink:0}.theme-swatch.amethyst{background:linear-gradient(135deg,#191526,#a580e8)}.theme-swatch.crimson{background:linear-gradient(135deg,#161014,#c24863)}.theme-swatch.pearl{background:linear-gradient(135deg,#fff,#d6c4ee)}
+.setting-switch{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px;background:var(--theme-surface,#302a43);border-radius:12px;color:var(--theme-text,#fff);font-size:14px}.setting-switch input{width:20px;height:20px;accent-color:var(--theme-primary,#8056d8);cursor:pointer}
+.settings-links{display:flex;gap:12px;flex-wrap:wrap}.settings-links a{display:inline-flex;padding:12px 16px;border-radius:11px;background:var(--theme-surface,#302a43);color:var(--theme-text,#fff);text-decoration:none;border:1px solid var(--theme-border,#39334e)}.settings-links a:hover{border-color:var(--theme-accent,#b799ff)}
+#settings-status{min-height:22px;color:var(--theme-accent,#b799ff);margin-top:20px;font-size:14px}
+@media(max-width:800px){.settings-grid{grid-template-columns:1fr}.settings-wide{grid-column:auto}}@media(max-width:500px){body.myspace-shell>main.settings-main{padding:23px 14px 45px}body.settings-page .settings-panel{padding:18px}}
+
+.theme-swatch.monochrome { background: linear-gradient(135deg,#ffffff 50%,#111111 50%);border-color:#777777; }

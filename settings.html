@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings | My Space</title>
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="themes.css"><link rel="stylesheet" href="sidebar.css"><link rel="stylesheet" href="settings-center.css">
+  <script src="themes.js" defer></script><script src="sidebar.js" defer></script><script src="settings-center.js" defer></script>
+</head>
+<body class="settings-page">
+  <main class="settings-main">
+    <div class="settings-heading"><p class="settings-eyebrow">MAKE IT YOURS</p><h1>Settings</h1><p>Personalize how My Space looks and feels.</p></div>
+    <div class="settings-grid">
+      <section class="settings-panel"><h2>Profile</h2><p>Choose the name displayed on your dashboard.</p>
+        <form id="profile-form"><label for="profile-name">Display name</label><div class="settings-form-row"><input id="profile-name" type="text" maxlength="50" autocomplete="nickname" placeholder="Your name"><button type="submit">Save Name</button></div></form>
+      </section>
+      <section class="settings-panel"><h2>Appearance</h2><p>Select your preferred color theme.</p>
+        <div class="theme-options" role="radiogroup" aria-label="Color theme">
+          <label class="theme-option"><input type="radio" name="theme" value="amethyst"><span class="theme-swatch amethyst"></span><span>Midnight Amethyst</span></label>
+          <label class="theme-option"><input type="radio" name="theme" value="crimson"><span class="theme-swatch crimson"></span><span>Crimson Ronin</span></label>
+          <label class="theme-option"><input type="radio" name="theme" value="pearl"><span class="theme-swatch pearl"></span><span>Pearl Dawn</span></label>
+          <label class="theme-option"><input type="radio" name="theme" value="monochrome"><span class="theme-swatch monochrome"></span><span>Monochrome</span></label>
+        </div>
+      </section>
+      <section class="settings-panel"><h2>Interface Sounds</h2><p>Enable subtle feedback when interacting with buttons and navigation.</p>
+        <label class="setting-switch"><span>UI click sounds</span><input id="setting-ui-sounds" type="checkbox"></label>
+      </section>
+      <section class="settings-panel"><h2>Dashboard Reminders</h2><p>Control the task reminder banner displayed on the dashboard.</p>
+        <label class="setting-switch"><span>Show reminder banner</span><input id="setting-reminders" type="checkbox"></label>
+        <p class="settings-note">Task summaries remain visible in the Dashboard widget. No system notifications are sent.</p>
+      </section>
+      <section class="settings-panel settings-wide"><h2>Data & Dashboard</h2><p>Your tasks, notes and habits stay stored in this browser until you export them or clear site data.</p>
+        <div class="settings-links"><a href="index.html">Open Dashboard →</a><a href="backup.html">Backup & Restore →</a></div>
+      </section>
+    </div>
+    <p id="settings-status" role="status" aria-live="polite"></p>
+  </main>
+</body>
+</html>

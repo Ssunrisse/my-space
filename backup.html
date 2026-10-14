@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Backup & Restore | My Space</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="themes.css"><link rel="stylesheet" href="sidebar.css"><link rel="stylesheet" href="backup.css">
+<script src="themes.js" defer></script><script src="sidebar.js" defer></script><script src="backup.js" defer></script>
+</head>
+<body class="backup-page">
+<main class="backup-main">
+  <div class="backup-intro"><p class="backup-eyebrow">KEEP YOUR WORK SAFE</p><h1>Backup & Restore</h1><p>Save your workspace to a file and restore it whenever you need to.</p></div>
+  <div class="backup-grid">
+    <section class="backup-panel"><div class="backup-symbol">↓</div><h2>Export your data</h2><p>Download your tasks, notes, folders, focus sessions, sound mixes, and settings as one JSON file.</p><div class="backup-details" id="backup-summary">Checking stored data…</div><button id="backup-export" class="backup-primary" type="button">Download Backup</button></section>
+    <section class="backup-panel"><div class="backup-symbol">↑</div><h2>Restore a backup</h2><p>Choose a My Space backup file. You can preview its contents before replacing your current data.</p><label class="backup-file-label" for="backup-file">Choose backup file (.json)</label><input id="backup-file" type="file" accept=".json,application/json"><div class="backup-preview" id="backup-preview" hidden></div><label class="backup-confirm"><input id="backup-acknowledge" type="checkbox" disabled><span>I understand this will replace my current My Space data. I have saved a separate backup.</span></label><button id="backup-restore" class="backup-danger" type="button" disabled>Restore Selected Backup</button></section>
+  </div>
+  <section class="backup-panel backup-info"><h2>Important to know</h2><p>My Space stores your information in this browser. Backups let you move it to another device or restore it after clearing browser storage.</p><p><strong>Close other My Space tabs before restoring.</strong> Restoring replaces existing notes and the supported preferences and data in localStorage. After a successful restore, reload the app to see the changes.</p><p>Keep backup files private: they may include personal notes and tasks. Backups do not include music or other files from your computer.</p></section>
+  <p class="backup-status" id="backup-status" role="status" aria-live="polite"></p>
+</main>
+</body>
+</html>

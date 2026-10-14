@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habit Tracker | My Space</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="themes.css">
+  <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="habits.css">
+  <script src="themes.js" defer></script>
+  <script src="sidebar.js" defer></script>
+  <script src="habits.js" defer></script>
+</head>
+<body class="habits-page">
+  <main class="habits-main">
+    <div class="habits-heading">
+      <div><p class="habits-eyebrow">BUILD BETTER DAYS</p><h1>Habit Tracker</h1><p>Small steps. Consistent progress.</p></div>
+      <button type="button" id="new-habit" class="habits-primary">+ New Habit</button>
+    </div>
+    <section class="habits-overview" aria-label="Habit statistics">
+      <div class="habits-metric"><span>Active Habits</span><strong id="metric-active">0</strong></div>
+      <div class="habits-metric"><span>Done Today</span><strong id="metric-today">0</strong></div>
+      <div class="habits-metric"><span>Today's Progress</span><strong id="metric-progress">0%</strong></div>
+      <div class="habits-metric"><span>Best Streak</span><strong id="metric-streak">0 days</strong></div>
+    </section>
+    <div class="habits-layout">
+      <section class="habits-panel" aria-labelledby="today-title">
+        <div class="habits-section-heading"><div><p class="habits-eyebrow">DAILY ROUTINE</p><h2 id="today-title">Today's Habits</h2><p id="today-date"></p></div><span id="today-count" class="habits-pill">0 / 0</span></div>
+        <div id="habits-list" class="habits-list"></div>
+        <p id="habits-empty" class="habits-empty" hidden>No habits yet. Add one to get started.</p>
+      </section>
+      <section class="habits-panel" aria-labelledby="calendar-title">
+        <div class="habits-section-heading"><div><p class="habits-eyebrow">YOUR CONSISTENCY</p><h2 id="calendar-title">Activity Calendar</h2></div>
+          <div class="habits-month-actions"><button type="button" id="month-prev" aria-label="Previous month">‹</button><button type="button" id="month-next" aria-label="Next month">›</button></div></div>
+        <p id="month-label" class="habits-month-label"></p>
+        <div class="habits-weekdays" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+        <div id="habits-calendar" class="habits-calendar" aria-label="Daily habit completion calendar"></div>
+        <p class="habits-legend">Less activity <span class="habits-level level-0"></span><span class="habits-level level-1"></span><span class="habits-level level-2"></span><span class="habits-level level-3"></span> More activity</p>
+        <p id="calendar-detail" class="habits-calendar-detail" aria-live="polite">Choose a day to see your progress.</p>
+      </section>
+    </div>
+    <dialog id="habit-dialog" class="habits-dialog" aria-labelledby="habit-dialog-title">
+      <form id="habit-form">
+        <h2 id="habit-dialog-title">New Habit</h2>
+        <label for="habit-name">Habit name</label><input id="habit-name" maxlength="70" placeholder="e.g. Read for 20 minutes" required>
+        <label for="habit-icon">Icon</label><select id="habit-icon"><option value="📚">📚 Reading</option><option value="💻">💻 Study</option><option value="💪">💪 Fitness</option><option value="💧">💧 Hydration</option><option value="🧘">🧘 Mindfulness</option><option value="✍️">✍️ Writing</option><option value="🌱">🌱 Other</option></select>
+        <label for="habit-color">Color</label><select id="habit-color"><option value="violet">Violet</option><option value="rose">Rose</option><option value="teal">Teal</option><option value="amber">Amber</option></select>
+        <p id="habit-form-error" class="habits-error" role="alert"></p>
+        <div class="habits-dialog-actions"><button type="button" id="habit-cancel">Cancel</button><button type="submit" class="habits-primary">Save Habit</button></div>
+      </form>
+    </dialog>
+    <p id="habits-message" class="habits-message" role="status" aria-live="polite"></p>
+  </main>
+</body>
+</html>

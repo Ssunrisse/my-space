@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Account | My Space</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="themes.css">
+  <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="auth.css">
+  <script src="themes.js" defer></script>
+  <script src="sidebar.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+  <script src="auth-config.js" defer></script>
+  <script src="auth.js" defer></script>
+</head>
+<body class="auth-page">
+  <main class="auth-main">
+    <div class="auth-intro">
+      <p class="auth-eyebrow">YOUR SPACE, YOUR ACCOUNT</p>
+      <h1>Welcome to My Space</h1>
+      <p>Sign in or create an account. Manual cloud backup and restore are available in Cloud Sync.</p>
+    </div>
+    <section class="auth-card" aria-labelledby="auth-title">
+      <div id="auth-guest">
+        <div class="auth-tabs" role="group" aria-label="Account actions">
+          <button type="button" id="tab-signin" class="selected" aria-pressed="true">Sign in</button>
+          <button type="button" id="tab-signup" aria-pressed="false">Create account</button>
+        </div>
+        <h2 id="auth-title">Sign in</h2>
+        <form id="auth-form">
+          <label for="auth-email">Email</label>
+          <input id="auth-email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com">
+          <label for="auth-password">Password</label>
+          <input id="auth-password" type="password" autocomplete="current-password" minlength="8" required placeholder="At least 8 characters">
+          <button id="auth-submit" class="auth-primary" type="submit">Sign in</button>
+        </form>
+        <button id="auth-forgot" class="auth-text-button" type="button">Forgot password?</button>
+      </div>
+      <div id="auth-recovery" hidden>
+        <h2>Set a new password</h2>
+        <form id="recovery-form">
+          <label for="recovery-password">New password</label>
+          <input id="recovery-password" type="password" autocomplete="new-password" minlength="8" required>
+          <button type="submit" class="auth-primary">Update password</button>
+        </form>
+      </div>
+      <div id="auth-member" hidden>
+        <h2>You're signed in</h2>
+        <p class="auth-muted">Account</p>
+        <p id="auth-member-email" class="auth-member-email"></p>
+        <p class="auth-muted">Your current tasks and notes are still stored locally in this browser. They are not synced to your account yet.</p>
+        <div class="auth-member-actions">
+          <a class="auth-primary auth-link" href="index.html">Open Dashboard</a><a href="sync.html">Cloud Sync →</a>
+          <button id="auth-signout" type="button">Sign out</button>
+        </div>
+      </div>
+      <p id="auth-message" class="auth-message" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+</body>
+</html>

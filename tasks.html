@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Tasks | My Space</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="themes.css">
+  <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="advanced-tasks.css">
+  <script src="script.js" defer></script>
+  <script src="themes.js" defer></script>
+  <script src="shared-tasks.js" defer></script>
+  <script src="sidebar.js" defer></script>
+</head>
+<body class="tasks-page">
+  <main class="tasks-main">
+    <div class="tasks-intro">
+      <div>
+        <p class="tasks-eyebrow">YOUR WORKSPACE</p>
+        <h1>My Tasks</h1>
+        <p>Organize your priorities and keep moving forward.</p>
+      </div>
+      <div class="tasks-summary" id="contador-tareas">0 of 0 completed</div>
+    </div>
+
+    <section class="tasks-panel" id="tareas">
+      <form id="formulario-tarea" class="advanced-task-form">
+        <label class="field field-grow">
+          <span>New task</span>
+          <input id="nueva-tarea" type="text" placeholder="What do you need to do?" maxlength="160" required>
+        </label>
+        <label class="field">
+          <span>Due date</span>
+          <input id="fecha-tarea" type="date">
+        </label>
+        <label class="field">
+          <span>Priority</span>
+          <select id="prioridad-tarea">
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="low">Low</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Category</span>
+          <select id="categoria-tarea">
+            <option value="Personal">Personal</option>
+            <option value="Study">Study</option>
+            <option value="Work">Work</option>
+            <option value="Health">Health</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+        <button type="submit" class="task-primary">+ Add Task</button>
+      </form>
+      <div class="tasks-toolbar">
+        <label class="field field-search"><span>Search tasks</span><input id="buscar-tareas" type="search" placeholder="Search by name..."></label>
+        <label class="field"><span>Status</span><select id="filtrar-estado"><option value="all">All</option><option value="pending">Pending</option><option value="completed">Completed</option><option value="overdue">Overdue</option></select></label>
+        <label class="field"><span>Priority</span><select id="filtrar-prioridad"><option value="all">All priorities</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select></label>
+        <label class="field"><span>Category</span><select id="filtrar-categoria"><option value="all">All categories</option><option value="Personal">Personal</option><option value="Study">Study</option><option value="Work">Work</option><option value="Health">Health</option><option value="Other">Other</option></select></label>
+        <label class="field"><span>Sort by</span><select id="ordenar-tareas"><option value="date">Due date</option><option value="priority">Priority</option><option value="created">Newest</option></select></label>
+      </div>
+      <div class="tasks-results"><span id="visible-count">0 tasks shown</span><button id="clear-task-filters" type="button" class="task-secondary">Clear filters</button></div>
+      <ul id="lista-tareas" class="advanced-task-list"></ul>
+      <p id="sin-tareas" class="tasks-empty" hidden>No matching tasks. Try clearing your filters. ✨</p>
+    </section>
+  </main>
+</body>
+</html>

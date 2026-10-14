@@ -1,0 +1,122 @@
+/* MY SPACE 3.7 — VISUAL POLISH
+   Shared enhancement layer. No storage keys or theme colors are changed.
+   Loaded by sidebar.js after the page's regular stylesheets. */
+
+body.myspace-shell {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Consistent interactive feedback without overriding theme palettes. */
+body.myspace-shell :is(button, a, input, textarea, select) {
+  -webkit-tap-highlight-color: transparent;
+}
+body.myspace-shell :is(button, a[href], select, input[type="checkbox"], input[type="range"]) {
+  touch-action: manipulation;
+}
+body.myspace-shell :is(button, a[href]) {
+  transition-property: background-color, border-color, color, box-shadow, opacity, transform;
+  transition-duration: 180ms;
+  transition-timing-function: ease;
+}
+body.myspace-shell :is(button, a[href]):focus-visible,
+body.myspace-shell :is(input, textarea, select, [contenteditable="true"]):focus-visible {
+  outline: 2px solid var(--theme-accent, var(--accent, #b799ff));
+  outline-offset: 3px;
+}
+body.myspace-shell :is(button, a[href]):disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+body.myspace-shell :is(input:not([type="checkbox"]):not([type="range"]), textarea, select) {
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+body.myspace-shell :is(input:not([type="checkbox"]):not([type="range"]), textarea, select):focus-visible {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--theme-accent, var(--accent, #b799ff)) 13%, transparent);
+}
+
+/* Sidebar. Target only the application navigation, not page-specific navs. */
+body.myspace-shell .myspace-sidebar {
+  box-shadow: 8px 0 30px rgba(0,0,0,.065);
+}
+body.myspace-shell .myspace-sidebar .sidebar-link {
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+body.myspace-shell .myspace-sidebar .sidebar-link:not(.active):hover {
+  transform: translateX(3px);
+}
+body.myspace-shell .myspace-sidebar .sidebar-link:active,
+body.myspace-shell .myspace-mobile-header .sidebar-toggle:active {
+  transform: scale(.98);
+}
+
+/* Shared page entrance and compact motion on cards. */
+@keyframes myspace-page-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+body.myspace-shell > main {
+  animation: myspace-page-enter 300ms cubic-bezier(.2,.7,.2,1) both;
+}
+body.myspace-shell :is(
+  .widget, .stats-panel, .focus-card, .habit-card,
+  .backup-card, .settings-panel, .activity-card,
+  .notes-panel
+) {
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+body.myspace-shell :is(
+  .widget, .stats-panel, .focus-card, .habit-card,
+  .backup-card, .settings-panel, .activity-card,
+  .notes-panel
+):hover {
+  border-color: color-mix(in srgb, var(--theme-accent, var(--accent, #b799ff)) 32%, var(--theme-border, var(--border, #39334e)));
+}
+
+/* Make list interactions and action cards clearer. */
+body.myspace-shell :is(
+  .scheduled-task, #lista-tareas li, .focus-stat, .sound-item
+) {
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+body.myspace-shell :is(button, a[href]):active {
+  filter: brightness(.94);
+}
+body.myspace-shell ::selection {
+  background: color-mix(in srgb, var(--theme-accent, var(--accent, #b799ff)) 30%, transparent);
+  color: var(--theme-text, var(--text, inherit));
+}
+
+/* Mobile layouts: no unnecessary wide content. */
+body.myspace-shell > main,
+body.myspace-shell > main * { min-width: 0; }
+body.myspace-shell :is(.widget, .focus-card, .stats-panel, .settings-panel) {
+  overflow-wrap: break-word;
+}
+@media (max-width: 600px) {
+  body.myspace-shell > main {
+    width: 100%;
+    overflow-x: clip;
+  }
+  body.myspace-shell :is(button, input, select, textarea) {
+    max-width: 100%;
+  }
+  body.myspace-shell .myspace-sidebar .sidebar-link {
+    min-height: 44px;
+  }
+}
+
+/* Respect OS-level accessibility preference. */
+@media (prefers-reduced-motion: reduce) {
+  body.myspace-shell > main { animation: none !important; }
+  body.myspace-shell :is(button, a[href], input, textarea, select,
+     .widget, .stats-panel, .focus-card, .habit-card, .backup-card,
+     .settings-panel, .activity-card, .notes-panel,
+     .scheduled-task, #lista-tareas li, .focus-stat, .sound-item) {
+    transition: none !important;
+  }
+  body.myspace-shell .myspace-sidebar .sidebar-link:hover,
+  body.myspace-shell .myspace-sidebar .sidebar-link:active {
+    transform: none !important;
+  }
+}

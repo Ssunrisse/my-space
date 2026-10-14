@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Daily Quote | My Space</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="quotes.css">
+    <link rel="stylesheet" href="sidebar.css">
+
+    <script src="script.js" defer></script>
+    <script src="themes.js" defer></script>
+    <script src="quotes.js" defer></script>
+    <script src="sidebar.js" defer></script>
+</head>
+
+<body class="quotes-page">
+
+    <header class="site-header">
+        <a href="index.html" class="site-brand">✦ My Space</a>
+
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="index.html">Dashboard</a>
+            <a href="tasks.html">My Tasks</a>
+            <a href="statistics.html">Statistics</a>
+            <a href="quotes.html">Daily Quote</a>
+            <a href="settings.html">Settings</a>
+        </nav>
+    </header>
+
+    <main class="quotes-main">
+
+        <div class="quotes-intro">
+            <p class="quotes-eyebrow">A MOMENT OF INSPIRATION</p>
+            <h1>Daily Inspiration 🌸</h1>
+            <p>
+                Take a moment to breathe, dream,
+                and find your motivation.
+            </p>
+        </div>
+
+        <div class="quotes-layout">
+
+            <section class="quotes-visual" aria-label="Anime scenery">
+                <img
+                    id="anime-gif"
+                    src="assets/anime.gif"
+                    alt="Animated anime scenery"
+                >
+
+                <div class="quotes-visual-caption">
+                    <span>✦ YOUR LITTLE ESCAPE</span>
+                    <h2>Keep dreaming.</h2>
+                    <p>Beautiful things take time.</p>
+                </div>
+            </section>
+
+            <section class="quotes-panel">
+
+                <div class="quotes-panel-top">
+                    <span class="quotes-eyebrow">QUOTE OF THE MOMENT</span>
+                    <span id="quote-counter">01 / 25</span>
+                </div>
+
+                <div class="quote-content" aria-live="polite">
+                    <span class="quote-symbol" aria-hidden="true">“</span>
+
+                    <blockquote id="quote-text">
+                        Every small step brings you closer
+                        to your dreams.
+                    </blockquote>
+
+                    <span class="quote-category" id="quote-category">
+                        Motivation
+                    </span>
+                </div>
+
+                <div class="quote-progress">
+                    <div id="quote-progress-fill"></div>
+                </div>
+
+                <div class="quote-controls">
+                    <button id="quote-previous" type="button"
+                            aria-label="Previous quote">
+                        ←
+                    </button>
+
+                    <button id="quote-play" type="button">
+                        Pause
+                    </button>
+
+                    <button id="quote-next" type="button"
+                            aria-label="Next quote">
+                        →
+                    </button>
+
+                    <button id="quote-copy" type="button">
+                        Copy Quote
+                    </button>
+                </div>
+
+                <p class="quote-timer-label">
+                    A new quote every 15 seconds
+                </p>
+
+            </section>
+
+        </div>
+
+        <div class="quotes-footer-message">
+            <span>✦</span>
+            <p>One day at a time. You're doing great.</p>
+            <span>✦</span>
+        </div>
+
+    </main>
+
+</body>
+</html>

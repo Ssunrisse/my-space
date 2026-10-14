@@ -1,0 +1,95 @@
+/* My Space 3.6.2 — DARK MONOCHROME. Loaded after the base styles. */
+body[data-theme="monochrome"] {
+  color-scheme: dark;
+  --theme-bg: #080808;
+  --theme-panel: #151515;
+  --theme-surface: #242424;
+  --theme-text: #f5f5f5;
+  --theme-muted: #b1b1b1;
+  --theme-accent: #ffffff;
+  --theme-primary: #3d3d3d;
+  --theme-border: #383838;
+  --bg: #080808;
+  --panel: #151515;
+  --panel-alt: #242424;
+  --text: #f5f5f5;
+  --muted: #b1b1b1;
+  --accent: #ffffff;
+  --accent-strong: #4a4a4a;
+  --border: #383838;
+  --shadow: 0 12px 32px rgba(0, 0, 0, .35);
+  background: #080808;
+  color: #f5f5f5;
+}
+body[data-theme="monochrome"].dashboard-page {
+  background: #080808;
+}
+body[data-theme="monochrome"] :is(.myspace-sidebar, .myspace-mobile-header) {
+  --sb-bg: #101010;
+  --sb-surface: #242424;
+  --sb-text: #ffffff;
+  --sb-muted: #b1b1b1;
+  --sb-accent: #ffffff;
+  --sb-primary: #383838;
+  --sb-border: #303030;
+  background: #101010;
+  color: #ffffff;
+  border-color: #303030;
+}
+body[data-theme="monochrome"] :is(main, .dashboard-main, .focus-main, .settings-main) {
+  color: #f5f5f5;
+}
+body[data-theme="monochrome"] :is(
+  .widget, .focus-card, .settings-panel, .stats-panel,
+  .activity-card, .notes-panel, .habit-card, .backup-card
+) {
+  background: #151515;
+  border-color: #383838;
+  color: #f5f5f5;
+}
+body[data-theme="monochrome"] :is(
+  .calendar-day, .today-label, .task-count, .scheduled-task,
+  .focus-stat, .sound-item, .theme-option, .setting-switch,
+  .focus-mode, .focus-settings-form input
+) {
+  background: #242424;
+  color: #f5f5f5;
+  border-color: #3e3e3e;
+}
+body[data-theme="monochrome"] :is(
+  h1, h2, h3, h4, .widget-heading h2, .welcome h1,
+  .focus-card h2, .settings-panel h2
+) { color: #ffffff; }
+body[data-theme="monochrome"] :is(
+  .subtitle, .eyebrow, .clock-date, .calendar-legend,
+  .focus-eyebrow, .focus-stat span, .settings-note
+) { color: #bdbdbd; }
+body[data-theme="monochrome"] :is(input, textarea, select) {
+  color-scheme: dark;
+  accent-color: #bcbcbc;
+}
+body[data-theme="monochrome"] :is(
+  .calendar-day.selected, .sidebar-link.active,
+  .sidebar-link[aria-current="page"], .focus-mode.active
+) {
+  background: #454545;
+  color: #ffffff;
+  border-color: #666666;
+}
+body[data-theme="monochrome"] .sidebar-logo {
+  background: #eeeeee;
+  color: #111111;
+}
+body[data-theme="monochrome"] :is(.status-dot, .sidebar-status-dot) {
+  background: #eeeeee;
+  box-shadow: none;
+}
+body[data-theme="monochrome"] .calendar-day.has-tasks::after {
+  background: #eeeeee;
+}
+body[data-theme="monochrome"] .calendar-day.selected.has-tasks::after {
+  background: #ffffff;
+}
+body[data-theme="monochrome"] :is(button, a, input, textarea):focus-visible {
+  outline-color: #eeeeee;
+}

@@ -1,0 +1,133 @@
+
+/* =====================================
+   MY SPACE — SHARED NAVIGATION
+===================================== */
+
+.site-header {
+    width: 100%;
+    min-height: 82px;
+    padding: 16px clamp(20px, 4vw, 72px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    background: #211e32;
+    border-bottom: 1px solid #39334e;
+    box-sizing: border-box;
+}
+
+.site-brand {
+    color: #c4a5ff;
+    font-size: 24px;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.site-nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 15px;
+    border-radius: 11px;
+
+    color: #c9c5db;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: background-color .2s, color .2s;
+}
+
+.site-nav a:hover {
+    background: #302b49;
+    color: #ffffff;
+}
+
+.site-nav a.active {
+    background: #8056d8;
+    color: #ffffff;
+}
+
+.site-nav a:focus-visible {
+    outline: 2px solid #c4a5ff;
+    outline-offset: 3px;
+}
+
+/* LIGHT MODE */
+
+body.modo-claro .site-header {
+    background: #ffffff;
+    border-bottom-color: #e3d9ef;
+}
+
+body.modo-claro .site-brand {
+    color: #7045bf;
+}
+
+body.modo-claro .site-nav a {
+    color: #5d526e;
+}
+
+body.modo-claro .site-nav a:hover {
+    background: #f0e9fa;
+    color: #7045bf;
+}
+
+body.modo-claro .site-nav a.active {
+    background: #8056d8;
+    color: #ffffff;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .site-nav {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-header {
+        padding: 16px;
+    }
+
+    .site-nav a {
+        font-size: 12px;
+        padding: 9px 11px;
+    }
+}
+
+/* Keep the logo identical across all pages */
+
+.site-header .site-brand {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #c4a5ff;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+body.modo-claro .site-header .site-brand {
+    color: #7045bf;
+}
