@@ -1,3 +1,4 @@
+// My Space - Dashboard Functionality
 function actualizarReloj(){
 
 // Obtener la fecha y hora actuales
