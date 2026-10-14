@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Space by sunrise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!--CABECERA-->
+    <header> 
+        <h1>✨ My Space</h1>
+
+        <nav> 
+            <a href="#Inicio">Inicio</a>
+            <a href="#Tareas">Mis Tareas</a>
+            <a href="#Frase">Frase del día</a>
+            <a href="#Objetivos">Mis objetivos</a>
+        </nav>
+
+        <button id="boton-tema" type="button">
+            ☀️ Cambiar tema
+        </button>
+    </header>
+
+    <!--CONTENIDO PRINCIPAL-->
+    <main>
+
+        <!--BIENVENIDA-->
+        <section id="#Inicio">
+            <h2 id="saludo">Cargando Saludo...</h2>
+            <p>Bienvenido a tu espacio personal.</p>
+            <p>Organiza tus tareas y disfruta del día</p>
+        </section>
+
+
+        <!--Configuracion-->
+        <section id="configuracion">
+            <h2>⚙️ Personalizacion</h2>
+
+            <form id="formulario-nombre">
+                
+                <label for="nombre-usuario">Tu nombre:</label>
+
+                <input
+                type = "text"
+                id = "nombre-usuario"
+                placeholder="Escribe tu nombre..."
+                maxlength="30"
+                >
+                <button type="submit">Guardar nombre</button>
+            </form>
+        </section>
+
+
+        <!--RELOJ-->
+        <section id="reloj">
+            <h2>🕒 Mi reloj</h2>
+            
+            <p id="Hora-actual">--:--:--</p>
+
+            <p id ="fecha-actual">Cargando fecha...</p>
+        </section>
+        <!--TAREAS-->
+        <section id="#Tareas">
+            <h2>✅ Mis Tareas</h2>
+
+            <form id="formulario-tarea">
+                <input
+                    type="text"
+                    id="nueva-tarea"
+                    placeholder="Escribe una nueva tarea"
+                    required
+                >
+
+                <button type="submit">Añadir Tarea</button>
+            </form>
+
+            <ul id="lista-tareas"></ul>
+
+            <p id="contador-tareas">0 tareas completadas</p>
+
+        </section>
+
+        <!--OBJETIVOS-->
+        <section id="#Objetivos">
+            <h2>🎯 Mis Objetivos</h2>
+            <p> Aprender a hacer paginas web</p>
+        </section>
+        <!--FRASE DEL DIA-->
+        <section id="#Frase">
+            <h2>💜 Frase del día</h2>
+
+            <article>
+                <p>
+                    Los grandes proyectos comienzan
+                    con un pequeño paso.
+                </p>
+            </article>
+        </section>
+
+    </main>
+
+    <!--PIE DE PAGINA-->
+    <footer>
+        <p>Hecho con amor mientras aprendo HTML.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

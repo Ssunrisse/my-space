@@ -1,0 +1,356 @@
+/* 1. Configuracion General */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0px;
+    background-color: #10101c;
+    color: #f5f3ff;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* 2. Cabecera */
+header {
+    background-color: #1b192b;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+header h1{
+    color: #c4a5ff;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a{
+    color: #c9c5db;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #c4a5ff;
+}
+
+/* 3. Contenido principal */
+
+main{
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* 4. Tarjetas */
+
+section {
+    background-color: #222035;
+    padding: 30px;
+    margin-bottom: 20px;
+    border: 1px solid #373249;
+    border-radius: 16px;
+}
+
+section h2 {
+    color: #c4a5ff;
+    margin-top: 0;
+}
+
+section p{
+    color: #c9c5db;
+}
+
+/* 5.Lista de tareas */
+
+ul{
+    padding-left: 24px;
+}
+
+li{
+    margin-bottom: 10px;
+}
+
+/* 6.Botones */
+
+button{
+    background-color: #8257d7;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #9c75ed;
+}
+
+/* 7.Frase del dia*/
+
+article{
+    background-color: #302b49;
+    border-left: 4px solid #a78bfa;
+    border-radius: 8px;
+    padding: 15px 20px;
+}
+
+/* 8.Pie de pagina*/
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #a9a3bb;
+}
+
+/* 9.Adaptacion para moviles*/
+
+@media (max-width: 600px) {
+    header {
+        padding: 20px;
+    }
+
+    main {
+        margin: 20px auto;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    /* Diseño del reloj */
+
+
+}
+#Hora-actual {
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 3px;
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* =====================================
+   LISTA DE TAREAS
+===================================== */
+
+#formulario-tarea {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+#nueva-tarea {
+    flex: 1;
+    min-width: 180px;
+    padding: 12px 15px;
+
+    background-color: #302b49;
+    color: white;
+
+    border: 1px solid #51476c;
+    border-radius: 10px;
+
+    font-size: 16px;
+}
+
+#nueva-tarea:focus {
+    outline: 2px solid #a78bfa;
+}
+
+#nueva-tarea::placeholder {
+    color: #b2aac8;
+}
+
+#lista-tareas {
+    list-style: none;
+    padding: 0;
+}
+
+#lista-tareas li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background-color: #302b49;
+    border-radius: 10px;
+    padding: 12px;
+
+    margin-bottom: 10px;
+}
+
+#lista-tareas li span {
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+#lista-tareas input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #a78bfa;
+    cursor: pointer;
+}
+
+#lista-tareas .completada {
+    text-decoration: line-through;
+    color: #a9a3bb;
+}
+
+#lista-tareas button {
+    background-color: #6f344e;
+    padding: 8px 12px;
+    font-size: 13px;
+}
+
+#lista-tareas button:hover {
+    background-color: #a14366;
+}
+
+#contador-tareas {
+    color: #aaa3c3;
+    font-size: 14px;
+}
+
+
+/* ======================================
+   MODO CLARO
+====================================== */
+
+body.modo-claro {
+    background-color: #f5f2fc;
+    color: #28213c;
+}
+
+body.modo-claro header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e3d9ef;
+}
+
+body.modo-claro header h1 {
+    color: #7045bf;
+}
+
+body.modo-claro nav a {
+    color: #5d526e;
+}
+
+body.modo-claro nav a:hover {
+    color: #7045bf;
+}
+
+body.modo-claro section {
+    background-color: #ffffff;
+    border-color: #e3d9ef;
+}
+
+body.modo-claro section h2 {
+    color: #7045bf;
+}
+
+body.modo-claro section p {
+    color: #60566e;
+}
+
+body.modo-claro #hora-actual {
+    color: #28213c;
+}
+
+body.modo-claro article {
+    background-color: #f0e9fa;
+}
+
+body.modo-claro #nueva-tarea {
+    background-color: #f8f5fc;
+    color: #28213c;
+    border-color: #d4c5e6;
+}
+
+body.modo-claro #nueva-tarea::placeholder {
+    color: #756b83;
+}
+
+body.modo-claro #lista-tareas li {
+    background-color: #f0e9fa;
+}
+
+body.modo-claro #lista-tareas .completada {
+    color: #777080;
+}
+
+body.modo-claro #contador-tareas,
+body.modo-claro footer {
+    color: #696078;
+}
+
+/* ESTILOS DEL FORMULARIO DE NOMBRE */
+
+#formulario-nombre {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+#nombre-usuario {
+    padding: 12px;
+    background-color: #302b49;
+    border: 1px solid #51476c;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+body.modo-claro #nombre-usuario {
+    background-color: #f8f5fc;
+    color: #28213c;
+    border-color: #d4c5e6;
+}
+
+body.modo-claro #nombre-usuario::placeholder {
+    color: #756b83;
+}
+
+/* RELOJ EN MODO CLARO */
+
+body.modo-claro #Hora-actual {
+    color: #28213c;
+}
+
+
+/* ======================================
+   DISEÑO DE LA FECHA
+====================================== */
+
+#fecha-actual {
+    color: #c4a5ff;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin-top: 5px;
+}
+
+/* FECHA EN MODO CLARO */
+
+body.modo-claro #fecha-actual {
+    color: #7045bf;
+}
