@@ -1,10 +1,9 @@
 <div align="center">
-
-# ✦ My Space
-
 ## 🚀 Try My Space
 
 [Launch My Space](https://ssunrisse.github.io/my-space/)
+
+# ✦ My Space
 
 ### Your space to focus, plan, and grow.
 
